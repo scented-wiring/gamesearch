@@ -1,0 +1,13 @@
+.Header {
+  width: 605px;
+  margin-top: 5px;
+}
+
+.Title {
+  display: flex;
+  font-size: 25px;
+}
+
+.Title i {
+  margin: 12px 0 0 5px;
+}
