@@ -9,7 +9,9 @@ const Searchbar = () => {
 
   const handleSearch = () => {
     axios
-      .get(`https://api.rawg.io/api/games?search=${query}`)
+      .get(
+        `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}`
+      )
       .then((response) => console.log(response));
   };
 
