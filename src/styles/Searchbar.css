@@ -1,7 +1,19 @@
 .Searchbar {
   margin-top: 10px;
+  display: flex;
 }
 
 .nes-input {
   height: 40px;
+  background: white;
+}
+
+.nes-input:focus {
+  outline: none;
+  background: #e9ecf0;
+}
+
+.nes-btn {
+  height: 40px;
+  padding: 2px 8px;
 }
