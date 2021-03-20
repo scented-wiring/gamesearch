@@ -4,15 +4,19 @@ import axios from "axios";
 import "nes.css/css/nes.min.css";
 import "../styles/Searchbar.css";
 
-const Searchbar = () => {
+type Props = {
+  setResults: (active: []) => void;
+};
+
+const Searchbar: React.FC<Props> = ({ setResults }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
     axios
       .get(
-        `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}`
+        `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true`
       )
-      .then((response) => console.log(response));
+      .then((response) => setResults(response.data));
   };
 
   return (
@@ -23,6 +27,7 @@ const Searchbar = () => {
           id="search_field"
           className="nes-input"
           placeholder="Enter query"
+          autoComplete="off"
           onChange={(e) => setQuery(e.target.value)}
         />
       </div>
