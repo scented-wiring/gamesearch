@@ -1,14 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { Data } from "../components/App";
+
+// Styling
 import "nes.css/css/nes.min.css";
-import "../styles/Searchbar.css";
+import "../styles/SearchBar.css";
 
 type Props = {
-  setResults: (active: []) => void;
+  setData: (active: Data) => void;
 };
 
-const Searchbar: React.FC<Props> = ({ setResults }) => {
+const SearchBar: React.FC<Props> = ({ setData }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
@@ -16,7 +19,7 @@ const Searchbar: React.FC<Props> = ({ setResults }) => {
       .get(
         `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true`
       )
-      .then((response) => setResults(response.data));
+      .then((response) => setData(response.data));
   };
 
   return (
@@ -42,4 +45,4 @@ const Searchbar: React.FC<Props> = ({ setResults }) => {
   );
 };
 
-export default Searchbar;
+export default SearchBar;

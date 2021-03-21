@@ -2,17 +2,24 @@ import { useState } from "react";
 
 // Components
 import Header from "../components/Header";
-import SearchBar from "../components/Searchbar";
+import SearchBar from "../components/SearchBar";
+import SearchResults from "../components/SearchResults";
 
 import "../styles/App.css";
 
+export type Data = {
+  count: number;
+  results: [];
+};
+
 const App = () => {
-  const [results, setResults] = useState([]);
+  const [data, setData] = useState<Data>({ count: 0, results: [] });
 
   return (
     <div className="App">
       <Header />
-      <SearchBar setResults={setResults} />
+      <SearchBar setData={setData} />
+      {data.count > 0 && <SearchResults data={data} />}
     </div>
   );
 };
