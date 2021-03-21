@@ -1,5 +1,8 @@
 .Searchbar {
   margin-top: 10px;
+}
+
+.search-form {
   display: flex;
 }
 

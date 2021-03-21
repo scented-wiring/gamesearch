@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import { Data } from "../components/App";
@@ -14,7 +14,8 @@ type Props = {
 const SearchBar: React.FC<Props> = ({ setData }) => {
   const [query, setQuery] = useState("");
 
-  const handleSearch = () => {
+  const handleSearch = (event: React.SyntheticEvent) => {
+    event.preventDefault();
     axios
       .get(
         `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true`
@@ -24,23 +25,21 @@ const SearchBar: React.FC<Props> = ({ setData }) => {
 
   return (
     <div className="Searchbar">
-      <div className="nes-field">
-        <input
-          type="text"
-          id="search_field"
-          className="nes-input"
-          placeholder="Enter query"
-          autoComplete="off"
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
-      <button
-        type="button"
-        className="nes-btn is-primary"
-        onClick={handleSearch}
-      >
-        Search
-      </button>
+      <form className="search-form" onSubmit={handleSearch}>
+        <div className="nes-field">
+          <input
+            type="text"
+            id="search_field"
+            className="nes-input"
+            placeholder="Enter query"
+            autoComplete="off"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="nes-btn is-primary">
+          Search
+        </button>
+      </form>
     </div>
   );
 };
