@@ -15,6 +15,9 @@ export type Game = {
       name: string;
     };
   }[];
+  genres: {
+    name: string;
+  }[];
   released: string;
   metacritic: number;
 };

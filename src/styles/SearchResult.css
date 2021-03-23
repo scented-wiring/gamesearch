@@ -31,17 +31,17 @@
   margin-bottom: 10px;
 }
 
-.platforms {
+.list-header {
   margin-bottom: 10px;
 }
 
-.platforms-list {
+.list {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
 }
 
-.platform {
+.list-item {
   font-size: 12px;
 }
 

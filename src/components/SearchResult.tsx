@@ -6,6 +6,7 @@ import "../styles/SearchResult.css";
 const SearchResult: React.FC<Game> = ({
   background_image,
   name,
+  genres,
   platforms,
   released,
   metacritic,
@@ -19,15 +20,29 @@ const SearchResult: React.FC<Game> = ({
         <img className="screenshot" src={background_image} alt={name} />
       )}
       {released && <div className="released">Released: {released}</div>}
+      {genres.length >= 1 && (
+        <div className="list-header">
+          Genres:
+          <div className="list">
+            {genres.map((result) =>
+              genres.length - 1 === genres.indexOf(result) ? (
+                <div className="list-item">{result.name}</div>
+              ) : (
+                <div className="list-item">{result.name},&nbsp;</div>
+              )
+            )}
+          </div>
+        </div>
+      )}
       {platforms && (
-        <div className="platforms">
+        <div className="list-header">
           Platforms:
-          <div className="platforms-list">
+          <div className="list">
             {platforms.map((result) =>
               platforms.length - 1 === platforms.indexOf(result) ? (
-                <div className="platform">{result.platform.name}</div>
+                <div className="list-item">{result.platform.name}</div>
               ) : (
-                <div className="platform">{result.platform.name},&nbsp;</div>
+                <div className="list-item">{result.platform.name},&nbsp;</div>
               )
             )}
           </div>
