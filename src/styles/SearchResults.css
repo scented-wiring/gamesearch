@@ -13,3 +13,17 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  height: 170px;
+}
+
+.nes-kirby {
+  align-self: flex-end;
+}
+
+.nes-balloon {
+  height: 70px;
+}

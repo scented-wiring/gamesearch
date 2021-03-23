@@ -9,9 +9,10 @@ import "../styles/SearchBar.css";
 
 type Props = {
   setData: (active: Data) => void;
+  setError: (active: { active: boolean; message: string }) => void;
 };
 
-const SearchBar: React.FC<Props> = ({ setData }) => {
+const SearchBar: React.FC<Props> = ({ setData, setError }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = (event: React.SyntheticEvent) => {
@@ -20,7 +21,10 @@ const SearchBar: React.FC<Props> = ({ setData }) => {
       .get(
         `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true`
       )
-      .then((response) => setData(response.data));
+      .then((response) => setData(response.data))
+      .catch(() => {
+        setError({ active: true, message: "Couldn't connect to server!" });
+      });
   };
 
   return (

@@ -29,12 +29,13 @@ export type Data = {
 
 const App = () => {
   const [data, setData] = useState<Data>({ count: 0, results: [] });
+  const [error, setError] = useState({ active: false, message: "" });
 
   return (
     <div className="App">
       <Header />
-      <SearchBar setData={setData} />
-      {data.count > 0 && <SearchResults data={data} />}
+      <SearchBar setData={setData} setError={setError} />
+      {data.count > 0 && <SearchResults data={data} error={error} />}
     </div>
   );
 };
