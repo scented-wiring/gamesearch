@@ -2,7 +2,7 @@
   height: 100%;
 }
 
-.SearchResults .nes-container {
+.SearchResults .nes-container:not(.SearchResults-cards .nes-container) {
   width: 95vw;
   margin-top: 18px;
   background: white;

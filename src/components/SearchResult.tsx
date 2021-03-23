@@ -12,7 +12,9 @@ const SearchResult: React.FC<Game> = ({
 }) => {
   return (
     <div className="SearchResult">
-      <div className="name">{name}</div>
+      <div className="nes-container is-rounded is-dark">
+        <div className="name">{name}</div>
+      </div>
       {background_image && (
         <img className="screenshot" src={background_image} alt={name} />
       )}
