@@ -13,11 +13,13 @@ type Game = {
 
 const SearchResults: React.FC<Props> = ({ data }) => {
   return (
-    <div className="nes-container with-title is-centered">
-      <p className="title">Showing search results</p>
-      {data.results.map((game: Game) => {
-        return <div>{game.name}</div>;
-      })}
+    <div className="SearchResults">
+      <div className="nes-container with-title is-centered">
+        <p className="title">Results 1-20 of {data.count}</p>
+        {data.results.map((game: Game) => {
+          return <div>{game.name}</div>;
+        })}
+      </div>
     </div>
   );
 };
