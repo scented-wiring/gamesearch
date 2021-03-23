@@ -1,5 +1,15 @@
+.SearchResults {
+  height: 100%;
+}
+
 .SearchResults .nes-container {
-  width: 80vw;
-  margin-top: 15px;
+  width: 95vw;
+  margin-top: 18px;
   background: white;
+}
+
+.SearchResults-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

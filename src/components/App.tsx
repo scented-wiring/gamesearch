@@ -7,9 +7,21 @@ import SearchResults from "./SearchResults";
 
 import "../styles/App.css";
 
+export type Game = {
+  name: string;
+  background_image: string;
+  platforms: {
+    platform: {
+      name: string;
+    };
+  }[];
+  released: string;
+  metacritic: number;
+};
+
 export type Data = {
   count: number;
-  results: [];
+  results: Game[];
 };
 
 const App = () => {

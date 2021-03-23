@@ -1,0 +1,44 @@
+.SearchResult {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  border: 4px solid black;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.name {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.screenshot {
+  width: 350px;
+  height: 200px;
+  background-position: center;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.released {
+  margin-bottom: 10px;
+}
+
+.platforms {
+  margin-bottom: 10px;
+}
+
+.platforms-list {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.platform {
+  font-size: 12px;
+}
+
+.metacritic {
+  margin-bottom: 10px;
+}
