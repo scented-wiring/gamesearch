@@ -2,6 +2,7 @@ import moment from "moment";
 
 import { Game } from "../components/App";
 
+import noimage from "../noimage.jpg";
 import "nes.css/css/nes.min.css";
 import "../styles/SearchResult.css";
 
@@ -18,9 +19,11 @@ const SearchResult: React.FC<Game> = ({
       <div className="nes-container is-rounded is-dark">
         <div className="name">{name}</div>
       </div>
-      {background_image && (
-        <img className="screenshot" src={background_image} alt={name} />
-      )}
+      <img
+        className="screenshot"
+        src={background_image ? background_image : noimage}
+        alt={name}
+      />
       {released && (
         <div className="released">
           Released {moment(released).format("MMM Do YYYY")}
