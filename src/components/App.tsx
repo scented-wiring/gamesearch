@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 // Components
-import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
-import SearchResults from "../components/SearchResults";
+import Header from "./Header";
+import SearchBar from "./SearchBar";
+import SearchResults from "./SearchResults";
 
 import "../styles/App.css";
 
