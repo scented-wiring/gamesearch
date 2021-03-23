@@ -12,6 +12,7 @@ type Props = {
   setError: (active: { active: boolean; message: string }) => void;
   searched: boolean;
   setSearched: (active: boolean) => void;
+  page: number;
 };
 
 const SearchBar: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const SearchBar: React.FC<Props> = ({
   setError,
   searched,
   setSearched,
+  page,
 }) => {
   const [query, setQuery] = useState("");
 
@@ -26,7 +28,7 @@ const SearchBar: React.FC<Props> = ({
     event.preventDefault();
     axios
       .get(
-        `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true`
+        `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true&page=${page}`
       )
       .then((response) => {
         setData(response.data);

@@ -31,6 +31,7 @@ const App = () => {
   const [data, setData] = useState<Data>({ count: 0, results: [] });
   const [error, setError] = useState({ active: false, message: "" });
   const [searched, setSearched] = useState(false);
+  const [page, setPage] = useState(1);
 
   return (
     <div className="App">
@@ -40,8 +41,11 @@ const App = () => {
         setError={setError}
         searched={searched}
         setSearched={setSearched}
+        page={page}
       />
-      {searched && <SearchResults data={data} error={error} />}
+      {searched && (
+        <SearchResults data={data} error={error} setPage={setPage} />
+      )}
     </div>
   );
 };

@@ -27,3 +27,12 @@
 .nes-balloon {
   height: 70px;
 }
+
+.pages {
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  margin: 0 3px;
+}

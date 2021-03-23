@@ -9,9 +9,26 @@ import "nes.css/css/nes.min.css";
 type Props = {
   data: Data;
   error: { active: boolean; message: string };
+  setPage: (active: number) => any;
 };
 
-const SearchResults: React.FC<Props> = ({ data, error }) => {
+const SearchResults: React.FC<Props> = ({ data, error, setPage }) => {
+  let pagesArray: number[] = [];
+
+  const generatePageNumbers = (num: number) => {
+    let i;
+    for (i = 0; i < num; i++) {
+      pagesArray.push(i + 1);
+    }
+  };
+
+  generatePageNumbers(Math.ceil(data.count / 20));
+  console.log(pagesArray);
+
+  const handleSetPage = (page: number) => {
+    setPage(page);
+  };
+
   return (
     <div className="SearchResults">
       <div className="nes-container with-title is-centered">
@@ -36,6 +53,15 @@ const SearchResults: React.FC<Props> = ({ data, error }) => {
             </div>
           </div>
         )}
+        <div className="pages">
+          {pagesArray.map((page: number) => {
+            return (
+              <div className="page" onClick={() => handleSetPage(page)}>
+                {page}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
