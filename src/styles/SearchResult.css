@@ -42,9 +42,19 @@
 }
 
 .list-item {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .metacritic {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
+}
+
+.score {
+  border: 2px black solid;
+  padding-left: 2px;
+  padding-top: 3px;
+  height: 30px;
+  width: 40px;
 }

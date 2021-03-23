@@ -14,6 +14,22 @@ const SearchResult: React.FC<Game> = ({
   released,
   metacritic,
 }) => {
+  let divStyle;
+
+  if (metacritic >= 75) {
+    divStyle = {
+      background: "lime",
+    };
+  } else if (metacritic >= 50) {
+    divStyle = {
+      background: "orange",
+    };
+  } else {
+    divStyle = {
+      background: "red",
+    };
+  }
+
   return (
     <div className="SearchResult">
       <div className="nes-container is-rounded is-dark">
@@ -57,7 +73,14 @@ const SearchResult: React.FC<Game> = ({
           </div>
         </div>
       )}
-      {metacritic && <div className="metacritic">Metacritic: {metacritic}</div>}
+      {metacritic && (
+        <div className="metacritic">
+          Metacritic:&nbsp;
+          <div className="score" style={divStyle}>
+            {metacritic}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
