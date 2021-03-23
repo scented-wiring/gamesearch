@@ -1,7 +1,8 @@
+// Dependencies
 import moment from "moment";
-
+// Types
 import { Game } from "../components/App";
-
+// Styling
 import noimage from "../noimage.jpg";
 import "nes.css/css/nes.min.css";
 import "../styles/SearchResult.css";

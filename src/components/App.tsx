@@ -1,5 +1,5 @@
+// Dependencies
 import { useState } from "react";
-
 // Components
 import Header from "./Header";
 import SearchBar from "./SearchBar";

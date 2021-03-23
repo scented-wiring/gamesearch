@@ -1,8 +1,8 @@
+// Dependencies
 import React, { useState } from "react";
 import axios from "axios";
-
+// Types
 import { Data } from "../components/App";
-
 // Styling
 import "nes.css/css/nes.min.css";
 import "../styles/SearchBar.css";

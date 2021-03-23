@@ -1,7 +1,8 @@
+// Components
 import SearchResult from "./SearchResult";
-
+// Types
 import { Data, Game } from "../components/App";
-
+// Styling
 import "../styles/SearchResults.css";
 import "nes.css/css/nes.min.css";
 
