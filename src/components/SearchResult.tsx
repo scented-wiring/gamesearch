@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import { Game } from "../components/App";
 
 import "nes.css/css/nes.min.css";
@@ -19,7 +21,11 @@ const SearchResult: React.FC<Game> = ({
       {background_image && (
         <img className="screenshot" src={background_image} alt={name} />
       )}
-      {released && <div className="released">Released: {released}</div>}
+      {released && (
+        <div className="released">
+          Released {moment(released).format("MMM Do YYYY")}
+        </div>
+      )}
       {genres.length >= 1 && (
         <div className="list-header">
           Genres:
