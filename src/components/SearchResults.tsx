@@ -16,6 +16,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   setError,
   searched,
   setSearched,
+  setLoad,
 }) => {
   let pagesArray: number[] = [];
 
@@ -30,8 +31,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   console.log(pagesArray);
 
   const handleSetPage = (page: number) => {
+    setLoad(true);
     setPage(page);
-    search(query, page, setData, setError, searched, setSearched);
+    search(query, page, setData, setError, searched, setSearched, setLoad);
   };
 
   return (

@@ -14,12 +14,14 @@ const SearchBar: React.FC<SearchBarProps> = ({
   setSearched,
   page,
   setPage,
+  setLoad,
 }) => {
   const handleSearch = (event: React.SyntheticEvent) => {
     event.preventDefault();
+    setPage(1);
     if (query) {
-      setPage(1);
-      search(query, page, setData, setError, searched, setSearched);
+      setLoad(true);
+      search(query, page, setData, setError, searched, setSearched, setLoad);
     } else {
       setError({
         active: true,

@@ -1,0 +1,15 @@
+.LoadingBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-message {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.nes-progress {
+  margin-top: 10px;
+  width: 400px;
+}

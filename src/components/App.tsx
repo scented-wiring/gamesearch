@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Data } from "../types";
 // Components
 import Header from "./Header";
+import LoadingBar from "./LoadingBar";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 
@@ -14,6 +15,7 @@ const App = () => {
   const [error, setError] = useState({ active: false, message: "" });
   const [searched, setSearched] = useState(false);
   const [page, setPage] = useState(1);
+  const [load, setLoad] = useState(false);
 
   return (
     <div className="App">
@@ -27,8 +29,10 @@ const App = () => {
         setSearched={setSearched}
         page={page}
         setPage={setPage}
+        setLoad={setLoad}
       />
-      {searched && (
+      {load && <LoadingBar />}
+      {searched && !load && (
         <SearchResults
           data={data}
           error={error}
@@ -38,6 +42,7 @@ const App = () => {
           setError={setError}
           searched={searched}
           setSearched={setSearched}
+          setLoad={setLoad}
         />
       )}
     </div>

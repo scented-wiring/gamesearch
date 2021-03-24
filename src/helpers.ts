@@ -8,7 +8,8 @@ export const search = (
   setData: (active: Data) => void,
   setError: (active: { active: boolean; message: string }) => void,
   searched: boolean,
-  setSearched: (active: boolean) => void
+  setSearched: (active: boolean) => void,
+  setLoad: (active: boolean) => void
 ) => {
   axios
     .get(
@@ -23,8 +24,10 @@ export const search = (
       } else {
         setError({ active: false, message: "" });
       }
+      setLoad(false);
     })
     .catch(() => {
       setError({ active: true, message: "Couldn't connect to server!" });
+      setLoad(false);
     });
 };

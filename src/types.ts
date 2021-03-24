@@ -27,6 +27,7 @@ export type SearchBarProps = {
   setSearched: (active: boolean) => void;
   page: number;
   setPage: (active: number) => void;
+  setLoad: (active: boolean) => void;
 };
 
 export type SearchResultsProps = {
@@ -38,4 +39,5 @@ export type SearchResultsProps = {
   setError: (active: { active: boolean; message: string }) => void;
   searched: boolean;
   setSearched: (active: boolean) => void;
+  setLoad: (active: boolean) => void;
 };
