@@ -42,9 +42,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       <div className="nes-container with-title is-centered">
         <p className="title">
           {!error.active
-            ? `Page ${page} - Results ${page * 20 - 19}-${page * 20} of ${
-                data.count
-              }`
+            ? `Page ${page} - Results ${page * 20 - 19}-${
+                page * 20 - 19 + data.results.length - 1
+              } of ${data.count}`
             : "Whoops!"}
         </p>
         {!error.active ? (
