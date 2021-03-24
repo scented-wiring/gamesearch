@@ -1,3 +1,4 @@
+import { search } from "../helpers";
 // Components
 import SearchResult from "./SearchResult";
 // Types
@@ -10,9 +11,23 @@ type Props = {
   data: Data;
   error: { active: boolean; message: string };
   setPage: (active: number) => any;
+  query: string;
+  setData: (active: Data) => void;
+  setError: (active: { active: boolean; message: string }) => void;
+  searched: boolean;
+  setSearched: (active: boolean) => void;
 };
 
-const SearchResults: React.FC<Props> = ({ data, error, setPage }) => {
+const SearchResults: React.FC<Props> = ({
+  data,
+  error,
+  setPage,
+  query,
+  setData,
+  setError,
+  searched,
+  setSearched,
+}) => {
   let pagesArray: number[] = [];
 
   const generatePageNumbers = (num: number) => {
@@ -27,6 +42,7 @@ const SearchResults: React.FC<Props> = ({ data, error, setPage }) => {
 
   const handleSetPage = (page: number) => {
     setPage(page);
+    search(query, page, setData, setError, searched, setSearched);
   };
 
   return (

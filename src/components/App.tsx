@@ -28,6 +28,7 @@ export type Data = {
 };
 
 const App = () => {
+  const [query, setQuery] = useState("");
   const [data, setData] = useState<Data>({ count: 0, results: [] });
   const [error, setError] = useState({ active: false, message: "" });
   const [searched, setSearched] = useState(false);
@@ -37,6 +38,8 @@ const App = () => {
     <div className="App">
       <Header />
       <SearchBar
+        query={query}
+        setQuery={setQuery}
         setData={setData}
         setError={setError}
         searched={searched}
@@ -44,7 +47,16 @@ const App = () => {
         page={page}
       />
       {searched && (
-        <SearchResults data={data} error={error} setPage={setPage} />
+        <SearchResults
+          data={data}
+          error={error}
+          setPage={setPage}
+          query={query}
+          setData={setData}
+          setError={setError}
+          searched={searched}
+          setSearched={setSearched}
+        />
       )}
     </div>
   );

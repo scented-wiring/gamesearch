@@ -1,6 +1,5 @@
 // Dependencies
-import React, { useState } from "react";
-import axios from "axios";
+import { search } from "../helpers";
 // Types
 import { Data } from "../components/App";
 // Styling
@@ -8,6 +7,8 @@ import "nes.css/css/nes.min.css";
 import "../styles/SearchBar.css";
 
 type Props = {
+  query: string;
+  setQuery: (active: string) => void;
   setData: (active: Data) => void;
   setError: (active: { active: boolean; message: string }) => void;
   searched: boolean;
@@ -16,32 +17,17 @@ type Props = {
 };
 
 const SearchBar: React.FC<Props> = ({
+  query,
+  setQuery,
   setData,
   setError,
   searched,
   setSearched,
   page,
 }) => {
-  const [query, setQuery] = useState("");
-
   const handleSearch = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    axios
-      .get(
-        `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true&page=${page}`
-      )
-      .then((response) => {
-        setData(response.data);
-        !searched && setSearched(true);
-        if (response.data.count === 0) {
-          setError({ active: true, message: "No results found!" });
-        } else {
-          setError({ active: false, message: "" });
-        }
-      })
-      .catch(() => {
-        setError({ active: true, message: "Couldn't connect to server!" });
-      });
+    search(query, page, setData, setError, searched, setSearched);
   };
 
   return (
