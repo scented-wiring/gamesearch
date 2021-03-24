@@ -41,7 +41,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     <div className="SearchResults">
       <div className="nes-container with-title is-centered">
         <p className="title">
-          {!error.active ? `Results 1-20 of ${data.count}` : "Whoops!"}
+          {!error.active
+            ? `Page ${page} - Results ${page * 20 - 19}-${page * 20} of ${
+                data.count
+              }`
+            : "Whoops!"}
         </p>
         {!error.active ? (
           <div className="SearchResults-cards">
