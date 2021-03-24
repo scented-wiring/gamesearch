@@ -12,7 +12,9 @@ const Parameters = () => {
               <select required id="default_select">
                 <option value="5">5</option>
                 <option value="10">10</option>
-                <option value="20">20</option>
+                <option selected={true} value="20">
+                  20
+                </option>
                 <option value="50">50</option>
               </select>
             </div>
@@ -27,16 +29,11 @@ const Parameters = () => {
               </select>
             </div>
           </div>
-          <div className="param">
-            <label htmlFor="default_select">Order:</label>
-            <div className="nes-select">
-              <select required id="default_select">
-                <option value="Name">Ascending</option>
-                <option value="Released">Descending</option>
-              </select>
-            </div>
-          </div>
           <div className="checkboxes">
+            <label>
+              <input type="checkbox" className="nes-checkbox" />
+              <span>Reverse order</span>
+            </label>
             <label>
               <input type="checkbox" className="nes-checkbox" />
               <span>Match exact query</span>
