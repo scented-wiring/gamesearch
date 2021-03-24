@@ -2,23 +2,12 @@ import { search } from "../helpers";
 // Components
 import SearchResult from "./SearchResult";
 // Types
-import { Data, Game } from "../components/App";
+import { Game, SearchResultsProps } from "../types";
 // Styling
 import "../styles/SearchResults.css";
 import "nes.css/css/nes.min.css";
 
-type Props = {
-  data: Data;
-  error: { active: boolean; message: string };
-  setPage: (active: number) => any;
-  query: string;
-  setData: (active: Data) => void;
-  setError: (active: { active: boolean; message: string }) => void;
-  searched: boolean;
-  setSearched: (active: boolean) => void;
-};
-
-const SearchResults: React.FC<Props> = ({
+const SearchResults: React.FC<SearchResultsProps> = ({
   data,
   error,
   setPage,

@@ -1,22 +1,11 @@
-// Dependencies
 import { search } from "../helpers";
 // Types
-import { Data } from "../components/App";
+import { SearchBarProps } from "../types";
 // Styling
 import "nes.css/css/nes.min.css";
 import "../styles/SearchBar.css";
 
-type Props = {
-  query: string;
-  setQuery: (active: string) => void;
-  setData: (active: Data) => void;
-  setError: (active: { active: boolean; message: string }) => void;
-  searched: boolean;
-  setSearched: (active: boolean) => void;
-  page: number;
-};
-
-const SearchBar: React.FC<Props> = ({
+const SearchBar: React.FC<SearchBarProps> = ({
   query,
   setQuery,
   setData,

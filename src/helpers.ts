@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Data } from "./components/App";
+import { Data } from "./types";
 
 export const search = (
   query: string,
