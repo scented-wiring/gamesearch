@@ -63,14 +63,53 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         )}
         <div className="pages">
           {pagesArray.map((pageNo: number) => {
-            return (
-              <div
-                className={pageNo === page ? "page-active" : "page"}
-                onClick={() => handleSetPage(pageNo)}
-              >
-                {pageNo}
-              </div>
-            );
+            if (page !== 1 && pageNo === 1) {
+              return (
+                <div className="arrow-section">
+                  <div
+                    className="arrow"
+                    onClick={() => handleSetPage(page - 1)}
+                  >
+                    {"<Prev"}
+                  </div>
+                  <div
+                    className={pageNo === page ? "page-active" : "page"}
+                    onClick={() => handleSetPage(pageNo)}
+                  >
+                    {pageNo}
+                  </div>
+                </div>
+              );
+            } else if (
+              page !== pagesArray.length &&
+              pageNo === pagesArray.length
+            ) {
+              return (
+                <div className="arrow-section">
+                  <div
+                    className={pageNo === page ? "page-active" : "page"}
+                    onClick={() => handleSetPage(pageNo)}
+                  >
+                    {pageNo}
+                  </div>
+                  <div
+                    className="arrow"
+                    onClick={() => handleSetPage(page + 1)}
+                  >
+                    {"Next>"}
+                  </div>
+                </div>
+              );
+            } else {
+              return (
+                <div
+                  className={pageNo === page ? "page-active" : "page"}
+                  onClick={() => handleSetPage(pageNo)}
+                >
+                  {pageNo}
+                </div>
+              );
+            }
           })}
         </div>
       </div>

@@ -44,3 +44,11 @@
   color: white;
   margin: 0 3px;
 }
+
+.arrow-section {
+  display: flex;
+}
+
+.arrow {
+  margin: 0 8px;
+}
