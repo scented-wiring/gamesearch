@@ -1,3 +1,7 @@
+.Parameters {
+  display: flex;
+}
+
 .Parameters .nes-container {
   margin-top: 20px;
   background: white;
@@ -16,6 +20,8 @@
   align-items: flex-end;
 }
 
-.nes-checkbox {
-  margin-top: 30px;
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
