@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Data } from "../types";
 // Components
 import Header from "./Header";
+import Parameters from "./Parameters";
 import LoadingBar from "./LoadingBar";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
@@ -31,6 +32,7 @@ const App = () => {
         setPage={setPage}
         setLoad={setLoad}
       />
+      <Parameters />
       {load && <LoadingBar />}
       {searched && !load && (
         <SearchResults

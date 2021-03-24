@@ -29,5 +29,6 @@ export const search = (
     .catch(() => {
       setError({ active: true, message: "Couldn't connect to server!" });
       setLoad(false);
+      setData({ count: 0, results: [] });
     });
 };

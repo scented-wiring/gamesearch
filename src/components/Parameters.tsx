@@ -1,0 +1,48 @@
+import "../styles/Parameters.css";
+
+const Parameters = () => {
+  return (
+    <div className="Parameters">
+      <div className="nes-container with-title is-centered">
+        <p className="title">Search parameters</p>
+        <div className="params">
+          <div className="param">
+            <label htmlFor="default_select">Results per page:</label>
+            <div className="nes-select">
+              <select required id="default_select">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">50</option>
+              </select>
+            </div>
+          </div>
+          <div className="param">
+            <label htmlFor="default_select">Sort by:</label>
+            <div className="nes-select">
+              <select required id="default_select">
+                <option value="Name">Name</option>
+                <option value="Released">Released</option>
+                <option value="Released">Metacritic Rating</option>
+              </select>
+            </div>
+          </div>
+          <div className="param">
+            <label htmlFor="default_select">Order:</label>
+            <div className="nes-select">
+              <select required id="default_select">
+                <option value="Name">Ascending</option>
+                <option value="Released">Descending</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <label>
+          <input type="checkbox" className="nes-checkbox" checked />
+          <span>Match exact query</span>
+        </label>
+      </div>
+    </div>
+  );
+};
+
+export default Parameters;

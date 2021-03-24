@@ -1,0 +1,21 @@
+.Parameters .nes-container {
+  margin-top: 20px;
+  background: white;
+}
+
+.param {
+  margin: 0 5px;
+}
+
+.param label {
+  font-size: 12px;
+}
+
+.params {
+  display: flex;
+  align-items: flex-end;
+}
+
+.nes-checkbox {
+  margin-top: 30px;
+}
