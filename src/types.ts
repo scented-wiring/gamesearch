@@ -26,6 +26,7 @@ export type SearchBarProps = {
   searched: boolean;
   setSearched: (active: boolean) => void;
   page: number;
+  setPage: (active: number) => void;
 };
 
 export type SearchResultsProps = {

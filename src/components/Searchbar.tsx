@@ -13,10 +13,21 @@ const SearchBar: React.FC<SearchBarProps> = ({
   searched,
   setSearched,
   page,
+  setPage,
 }) => {
   const handleSearch = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    search(query, page, setData, setError, searched, setSearched);
+    if (query) {
+      setPage(1);
+      search(query, page, setData, setError, searched, setSearched);
+    } else {
+      setError({
+        active: true,
+        message: "You must enter a query.",
+      });
+      setSearched(true);
+    }
+    !searched && setSearched(true);
   };
 
   return (

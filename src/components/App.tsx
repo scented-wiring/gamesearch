@@ -26,6 +26,7 @@ const App = () => {
         searched={searched}
         setSearched={setSearched}
         page={page}
+        setPage={setPage}
       />
       {searched && (
         <SearchResults

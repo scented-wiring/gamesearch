@@ -16,6 +16,7 @@ export const search = (
     )
     .then((response) => {
       setData(response.data);
+      //refactor below
       !searched && setSearched(true);
       if (response.data.count === 0) {
         setError({ active: true, message: "No results found!" });
