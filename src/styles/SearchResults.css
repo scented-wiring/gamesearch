@@ -36,3 +36,11 @@
 .page {
   margin: 0 3px;
 }
+
+.page-active {
+  background: black;
+  padding-left: 3px;
+  width: 30px;
+  color: white;
+  margin: 0 3px;
+}

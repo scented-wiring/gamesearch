@@ -10,6 +10,7 @@ import "nes.css/css/nes.min.css";
 const SearchResults: React.FC<SearchResultsProps> = ({
   data,
   error,
+  page,
   setPage,
   query,
   setData,
@@ -61,10 +62,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           </div>
         )}
         <div className="pages">
-          {pagesArray.map((page: number) => {
+          {pagesArray.map((pageNo: number) => {
             return (
-              <div className="page" onClick={() => handleSetPage(page)}>
-                {page}
+              <div
+                className={pageNo === page ? "page-active" : "page"}
+                onClick={() => handleSetPage(pageNo)}
+              >
+                {pageNo}
               </div>
             );
           })}

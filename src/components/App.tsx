@@ -36,6 +36,7 @@ const App = () => {
         <SearchResults
           data={data}
           error={error}
+          page={page}
           setPage={setPage}
           query={query}
           setData={setData}

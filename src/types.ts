@@ -33,6 +33,7 @@ export type SearchBarProps = {
 export type SearchResultsProps = {
   data: Data;
   error: { active: boolean; message: string };
+  page: number;
   setPage: (active: number) => any;
   query: string;
   setData: (active: Data) => void;
