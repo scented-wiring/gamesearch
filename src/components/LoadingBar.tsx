@@ -14,7 +14,7 @@ const LoadingBar = () => {
     }
   };
 
-  setTimeout(increaseProgress, 100);
+  setTimeout(increaseProgress, 40);
 
   return (
     <div className="LoadingBar">
