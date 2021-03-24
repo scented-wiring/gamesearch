@@ -23,6 +23,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       setLoad(true);
       search(query, page, setData, setError, searched, setSearched, setLoad);
     } else {
+      setData({ count: 0, results: [] });
       setError({
         active: true,
         message: "You must enter a query.",

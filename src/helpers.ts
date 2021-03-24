@@ -20,6 +20,7 @@ export const search = (
       //refactor below
       !searched && setSearched(true);
       if (response.data.count === 0) {
+        setData({ count: 0, results: [] });
         setError({ active: true, message: "No results found!" });
       } else {
         setError({ active: false, message: "" });
