@@ -35,7 +35,7 @@ const App = () => {
       setLoad(true);
       console.log(resultsPerPage);
     }
-  }, [resultsPerPage]);
+  }, [page, resultsPerPage]);
 
   return (
     <div className="App">

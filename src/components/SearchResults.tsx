@@ -1,4 +1,3 @@
-import { search } from "../helpers";
 // Components
 import SearchResult from "./SearchResult";
 // Types
@@ -31,21 +30,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
 
   generatePageNumbers(Math.ceil(data.count / resultsPerPage));
   console.log(pagesArray);
-
-  const handleSetPage = (page: number) => {
-    setLoad(true);
-    setPage(page);
-    search(
-      query,
-      page,
-      setData,
-      setError,
-      searched,
-      setSearched,
-      setLoad,
-      resultsPerPage
-    );
-  };
 
   return (
     <div className="SearchResults">
@@ -85,15 +69,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             if (page !== 1 && pageNo === 1) {
               return (
                 <div className="arrow-section">
-                  <div
-                    className="arrow"
-                    onClick={() => handleSetPage(page - 1)}
-                  >
+                  <div className="arrow" onClick={() => setPage(page - 1)}>
                     {"<Prev"}
                   </div>
                   <div
                     className={pageNo === page ? "page-active" : "page"}
-                    onClick={() => handleSetPage(pageNo)}
+                    onClick={() => setPage(pageNo)}
                   >
                     {pageNo}
                   </div>
@@ -107,14 +88,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                 <div className="arrow-section">
                   <div
                     className={pageNo === page ? "page-active" : "page"}
-                    onClick={() => handleSetPage(pageNo)}
+                    onClick={() => setPage(pageNo)}
                   >
                     {pageNo}
                   </div>
-                  <div
-                    className="arrow"
-                    onClick={() => handleSetPage(page + 1)}
-                  >
+                  <div className="arrow" onClick={() => setPage(page + 1)}>
                     {"Next>"}
                   </div>
                 </div>
@@ -123,7 +101,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               return (
                 <div
                   className={pageNo === page ? "page-active" : "page"}
-                  onClick={() => handleSetPage(pageNo)}
+                  onClick={() => setPage(pageNo)}
                 >
                   {pageNo}
                 </div>
