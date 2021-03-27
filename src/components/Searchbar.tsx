@@ -16,6 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   setPage,
   setLoad,
   resultsPerPage,
+  sortBy,
 }) => {
   const handleSearch = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -30,7 +31,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
         searched,
         setSearched,
         setLoad,
-        resultsPerPage
+        resultsPerPage,
+        sortBy
       );
     } else {
       setData({ count: 0, results: [] });

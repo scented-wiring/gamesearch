@@ -29,6 +29,7 @@ export type SearchBarProps = {
   setPage: (active: number) => void;
   setLoad: (active: boolean) => void;
   resultsPerPage: number;
+  sortBy: string;
 };
 
 export type SearchResultsProps = {
@@ -47,4 +48,5 @@ export type SearchResultsProps = {
 
 export type ParametersProps = {
   setResultsPerPage: (active: number) => void;
+  setSortBy: (active: string) => void;
 };

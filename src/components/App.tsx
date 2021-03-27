@@ -19,6 +19,7 @@ const App = () => {
   const [page, setPage] = useState(1);
   const [load, setLoad] = useState(false);
   const [resultsPerPage, setResultsPerPage] = useState(20);
+  const [sortBy, setSortBy] = useState("-rating");
 
   useEffect(() => {
     if (searched) {
@@ -30,12 +31,13 @@ const App = () => {
         searched,
         setSearched,
         setLoad,
-        resultsPerPage
+        resultsPerPage,
+        sortBy
       );
       setLoad(true);
       console.log(resultsPerPage);
     }
-  }, [page, resultsPerPage]);
+  }, [page, resultsPerPage, sortBy]);
 
   return (
     <div className="App">
@@ -51,8 +53,9 @@ const App = () => {
         setPage={setPage}
         setLoad={setLoad}
         resultsPerPage={resultsPerPage}
+        sortBy={sortBy}
       />
-      <Parameters setResultsPerPage={setResultsPerPage} />
+      <Parameters setResultsPerPage={setResultsPerPage} setSortBy={setSortBy} />
       {load && <LoadingBar />}
       {searched && !load && (
         <SearchResults

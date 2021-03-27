@@ -10,11 +10,12 @@ export const search = (
   searched: boolean,
   setSearched: (active: boolean) => void,
   setLoad: (active: boolean) => void,
-  resultsPerPage: number
+  resultsPerPage: number,
+  sortBy: string
 ) => {
   axios
     .get(
-      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true&page=${page}&page_size=${resultsPerPage}`
+      `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}`
     )
     .then((response) => {
       setData(response.data);

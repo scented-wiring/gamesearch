@@ -2,7 +2,10 @@ import { ParametersProps } from "../types";
 
 import "../styles/Parameters.css";
 
-const Parameters: React.FC<ParametersProps> = ({ setResultsPerPage }) => {
+const Parameters: React.FC<ParametersProps> = ({
+  setResultsPerPage,
+  setSortBy,
+}) => {
   return (
     <div className="Parameters">
       <div className="nes-container with-title is-centered">
@@ -30,10 +33,17 @@ const Parameters: React.FC<ParametersProps> = ({ setResultsPerPage }) => {
           <div className="param">
             <label htmlFor="default_select">Sort by:</label>
             <div className="nes-select">
-              <select required id="default_select">
-                <option value="Name">Name</option>
-                <option value="Released">Released</option>
-                <option value="Released">Metacritic Rating</option>
+              <select
+                required
+                id="default_select"
+                onChange={(e) => {
+                  setSortBy(e.target.value);
+                }}
+              >
+                <option value="-rating">RAWG rating</option>
+                <option value="name">Name</option>
+                <option value="-released">Released</option>
+                <option value="-metacritic">Metacritic Rating</option>
               </select>
             </div>
           </div>
