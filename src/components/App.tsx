@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Types
 import { Data } from "../types";
 // Components
@@ -9,6 +9,7 @@ import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 
 import "../styles/App.css";
+import { search } from "../helpers";
 
 const App = () => {
   const [query, setQuery] = useState("");
@@ -17,6 +18,24 @@ const App = () => {
   const [searched, setSearched] = useState(false);
   const [page, setPage] = useState(1);
   const [load, setLoad] = useState(false);
+  const [resultsPerPage, setResultsPerPage] = useState(20);
+
+  useEffect(() => {
+    if (searched) {
+      search(
+        query,
+        page,
+        setData,
+        setError,
+        searched,
+        setSearched,
+        setLoad,
+        resultsPerPage
+      );
+      setLoad(true);
+      console.log(resultsPerPage);
+    }
+  }, [resultsPerPage]);
 
   return (
     <div className="App">
@@ -31,8 +50,9 @@ const App = () => {
         page={page}
         setPage={setPage}
         setLoad={setLoad}
+        resultsPerPage={resultsPerPage}
       />
-      <Parameters />
+      <Parameters setResultsPerPage={setResultsPerPage} />
       {load && <LoadingBar />}
       {searched && !load && (
         <SearchResults
@@ -46,6 +66,7 @@ const App = () => {
           searched={searched}
           setSearched={setSearched}
           setLoad={setLoad}
+          resultsPerPage={resultsPerPage}
         />
       )}
     </div>

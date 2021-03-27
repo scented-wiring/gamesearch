@@ -1,6 +1,8 @@
+import { ParametersProps } from "../types";
+
 import "../styles/Parameters.css";
 
-const Parameters = () => {
+const Parameters: React.FC<ParametersProps> = ({ setResultsPerPage }) => {
   return (
     <div className="Parameters">
       <div className="nes-container with-title is-centered">
@@ -9,13 +11,19 @@ const Parameters = () => {
           <div className="param">
             <label htmlFor="default_select">Results per page:</label>
             <div className="nes-select">
-              <select required id="default_select">
+              <select
+                required
+                id="default_select"
+                onChange={(e) => {
+                  setResultsPerPage(parseInt(e.target.value));
+                }}
+              >
                 <option value="5">5</option>
                 <option value="10">10</option>
                 <option selected={true} value="20">
                   20
                 </option>
-                <option value="50">50</option>
+                <option value="40">40</option>
               </select>
             </div>
           </div>

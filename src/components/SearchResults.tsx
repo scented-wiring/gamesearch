@@ -18,6 +18,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   searched,
   setSearched,
   setLoad,
+  resultsPerPage,
 }) => {
   let pagesArray: number[] = [];
 
@@ -28,13 +29,22 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     }
   };
 
-  generatePageNumbers(Math.ceil(data.count / 20));
+  generatePageNumbers(Math.ceil(data.count / resultsPerPage));
   console.log(pagesArray);
 
   const handleSetPage = (page: number) => {
     setLoad(true);
     setPage(page);
-    search(query, page, setData, setError, searched, setSearched, setLoad);
+    search(
+      query,
+      page,
+      setData,
+      setError,
+      searched,
+      setSearched,
+      setLoad,
+      resultsPerPage
+    );
   };
 
   return (
@@ -42,8 +52,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       <div className="nes-container with-title is-centered">
         <p className="title">
           {!error.active
-            ? `Page ${page} - Results ${page * 20 - 19}-${
-                page * 20 - 19 + data.results.length - 1
+            ? `Page ${page} - Results ${
+                page * resultsPerPage - (resultsPerPage - 1)
+              }-${
+                page * resultsPerPage -
+                (resultsPerPage - 1) +
+                data.results.length -
+                1
               } of ${data.count}`
             : "Whoops!"}
         </p>

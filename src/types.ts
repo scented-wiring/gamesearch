@@ -28,17 +28,23 @@ export type SearchBarProps = {
   page: number;
   setPage: (active: number) => void;
   setLoad: (active: boolean) => void;
+  resultsPerPage: number;
 };
 
 export type SearchResultsProps = {
   data: Data;
   error: { active: boolean; message: string };
   page: number;
-  setPage: (active: number) => any;
+  setPage: (active: number) => void;
   query: string;
   setData: (active: Data) => void;
   setError: (active: { active: boolean; message: string }) => void;
   searched: boolean;
   setSearched: (active: boolean) => void;
   setLoad: (active: boolean) => void;
+  resultsPerPage: number;
+};
+
+export type ParametersProps = {
+  setResultsPerPage: (active: number) => void;
 };
