@@ -1,4 +1,4 @@
-import { search } from "../helpers";
+import { useState } from "react";
 // Types
 import { SearchBarProps } from "../types";
 // Styling
@@ -6,45 +6,18 @@ import "nes.css/css/nes.min.css";
 import "../styles/SearchBar.css";
 
 const SearchBar: React.FC<SearchBarProps> = ({
-  query,
   setQuery,
-  setData,
-  setError,
   searched,
   setSearched,
-  page,
   setPage,
-  setLoad,
-  resultsPerPage,
-  sortBy,
-  exact,
 }) => {
+  const [queryString, setQueryString] = useState("");
+
   const handleSearch = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    setPage(1);
-    if (query) {
-      setLoad(true);
-      search(
-        query,
-        page,
-        setData,
-        setError,
-        searched,
-        setSearched,
-        setLoad,
-        resultsPerPage,
-        sortBy,
-        exact
-      );
-    } else {
-      setData({ count: 0, results: [] });
-      setError({
-        active: true,
-        message: "You must enter a query.",
-      });
-      setSearched(true);
-    }
     !searched && setSearched(true);
+    setPage(1);
+    setQuery(queryString);
   };
 
   return (
@@ -57,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
             className="nes-input"
             placeholder="Enter query"
             autoComplete="off"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setQueryString(e.target.value)}
           />
         </div>
         <button type="submit" className="nes-btn is-primary">

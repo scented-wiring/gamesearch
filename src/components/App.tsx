@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 // Types
 import { Data } from "../types";
 // Components
@@ -9,7 +10,6 @@ import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 
 import "../styles/App.css";
-import { search } from "../helpers";
 
 const App = () => {
   const [query, setQuery] = useState("");
@@ -24,40 +24,48 @@ const App = () => {
   const [exact, setExact] = useState(false);
 
   useEffect(() => {
-    if (searched) {
-      search(
-        query,
-        page,
-        setData,
-        setError,
-        searched,
-        setSearched,
-        setLoad,
-        resultsPerPage,
-        sortBy,
-        exact
-      );
+    setPage(1);
+  }, [resultsPerPage, sortBy, exact]);
+
+  useEffect(() => {
+    if (!query) {
+      setData({ count: 0, results: [] });
+      setError({
+        active: true,
+        message: "You must enter a query.",
+      });
+    } else {
       setLoad(true);
+      axios
+        .get(
+          `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}`
+        )
+        .then((response) => {
+          setData(response.data);
+          if (response.data.count === 0) {
+            setData({ count: 0, results: [] });
+            setError({ active: true, message: "No results found!" });
+          } else {
+            setError({ active: false, message: "" });
+          }
+          setLoad(false);
+        })
+        .catch(() => {
+          setError({ active: true, message: "Couldn't connect to server!" });
+          setLoad(false);
+          setData({ count: 0, results: [] });
+        });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, resultsPerPage, sortBy, exact]);
+  }, [query, page, resultsPerPage, sortBy, exact]);
 
   return (
     <div className="App">
       <Header />
       <SearchBar
-        query={query}
         setQuery={setQuery}
-        setData={setData}
-        setError={setError}
         searched={searched}
         setSearched={setSearched}
-        page={page}
         setPage={setPage}
-        setLoad={setLoad}
-        resultsPerPage={resultsPerPage}
-        sortBy={sortBy}
-        exact={exact}
       />
       <Parameters
         setResultsPerPage={setResultsPerPage}

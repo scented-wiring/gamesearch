@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "nes.css/css/nes.min.css";
 import "../styles/LoadingBar.css";
@@ -14,7 +14,15 @@ const LoadingBar = () => {
     }
   };
 
-  setTimeout(increaseProgress, 40);
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      setTimeout(increaseProgress, 100);
+    }
+    return () => {
+      isMounted = false;
+    };
+  });
 
   return (
     <div className="LoadingBar">

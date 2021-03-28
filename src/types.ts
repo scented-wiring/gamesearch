@@ -20,18 +20,10 @@ export type Data = {
 };
 
 export type SearchBarProps = {
-  query: string;
   setQuery: (active: string) => void;
-  setData: (active: Data) => void;
-  setError: (active: { active: boolean; message: string }) => void;
   searched: boolean;
   setSearched: (active: boolean) => void;
-  page: number;
   setPage: (active: number) => void;
-  setLoad: (active: boolean) => void;
-  resultsPerPage: number;
-  sortBy: string;
-  exact: boolean;
 };
 
 export type SearchResultsProps = {
