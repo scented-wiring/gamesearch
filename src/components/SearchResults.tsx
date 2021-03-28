@@ -59,6 +59,15 @@ const SearchResults: React.FC<SearchResultsProps> = ({
         )}
         <div className="pages">
           {pagesArray.map((pageNo: number) => {
+            const standardPageLink = (
+              <div
+                key={pagesArray.indexOf(pageNo)}
+                className={pageNo === page ? "page-active" : "page"}
+                onClick={() => setPage(pageNo)}
+              >
+                {pageNo}
+              </div>
+            );
             if (page !== 1 && pageNo === 1) {
               return (
                 <div key="prev-section" className="arrow-section">
@@ -69,13 +78,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                   >
                     {"<Prev"}
                   </div>
-                  <div
-                    key={pagesArray.indexOf(pageNo)}
-                    className={pageNo === page ? "page-active" : "page"}
-                    onClick={() => setPage(pageNo)}
-                  >
-                    {pageNo}
-                  </div>
+                  {standardPageLink}
                 </div>
               );
             } else if (
@@ -84,13 +87,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             ) {
               return (
                 <div key="next-section" className="arrow-section">
-                  <div
-                    key={pagesArray.indexOf(pageNo)}
-                    className={pageNo === page ? "page-active" : "page"}
-                    onClick={() => setPage(pageNo)}
-                  >
-                    {pageNo}
-                  </div>
+                  {standardPageLink}
                   <div
                     key="next"
                     className="arrow"

@@ -39,9 +39,8 @@
 }
 
 .page-active {
-  width: 30px;
   color: blue;
-  margin: 0 8px;
+  margin: 0 3px;
 }
 
 .arrow-section {
