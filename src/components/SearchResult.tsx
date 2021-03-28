@@ -11,8 +11,10 @@ const SearchResult: React.FC<Game> = ({
   name,
   genres,
   platforms,
+  stores,
   released,
   metacritic,
+  rating,
 }) => {
   let divStyle;
 
@@ -81,12 +83,36 @@ const SearchResult: React.FC<Game> = ({
           </div>
         </div>
       )}
+      {stores && (
+        <div className="list-header">
+          Stores:
+          <div className="list">
+            {stores.map((result) =>
+              stores.length - 1 === stores.indexOf(result) ? (
+                <div key={stores.indexOf(result)} className="list-item">
+                  {result.store.name}
+                </div>
+              ) : (
+                <div key={stores.indexOf(result)} className="list-item">
+                  {result.store.name},&nbsp;
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      )}
       {metacritic && (
         <div className="metacritic">
           Metacritic:&nbsp;
-          <div className="score" style={divStyle}>
+          <div className="metacritic-score" style={divStyle}>
             {metacritic}
           </div>
+        </div>
+      )}
+      {rating > 0 && (
+        <div className="rating">
+          RAWG Rating:&nbsp;
+          <div>{rating}</div>
         </div>
       )}
     </div>

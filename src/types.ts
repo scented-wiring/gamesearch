@@ -9,9 +9,15 @@ export type Game = {
   genres: {
     name: string;
   }[];
+  metacritic: number;
+  rating: number;
   released: string;
   reviews_count: number;
-  metacritic: number;
+  stores: {
+    store: {
+      name: string;
+    };
+  }[];
 };
 
 export type Data = {
