@@ -31,6 +31,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
             placeholder="Enter query"
             autoComplete="off"
             onChange={(e) => setQueryString(e.target.value)}
+            pattern="^(?=.*\S).+$"
+            required
+            title="Must be at least 1 non-space character"
           />
         </div>
         <button type="submit" className="nes-btn is-primary">

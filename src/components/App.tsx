@@ -28,13 +28,7 @@ const App = () => {
   }, [resultsPerPage, sortBy, exact]);
 
   useEffect(() => {
-    if (!query) {
-      setData({ count: 0, results: [] });
-      setError({
-        active: true,
-        message: "You must enter a query.",
-      });
-    } else {
+    if (query) {
       setLoad(true);
       axios
         .get(
