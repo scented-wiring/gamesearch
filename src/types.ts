@@ -48,5 +48,8 @@ export type SearchResultsProps = {
 
 export type ParametersProps = {
   setResultsPerPage: (active: number) => void;
+  sortBy: string;
   setSortBy: (active: string) => void;
+  reverse: boolean;
+  setReverse: (active: boolean) => void;
 };

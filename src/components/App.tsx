@@ -20,6 +20,7 @@ const App = () => {
   const [load, setLoad] = useState(false);
   const [resultsPerPage, setResultsPerPage] = useState(20);
   const [sortBy, setSortBy] = useState("-rating");
+  const [reverse, setReverse] = useState(false);
 
   useEffect(() => {
     if (searched) {
@@ -35,7 +36,6 @@ const App = () => {
         sortBy
       );
       setLoad(true);
-      console.log(resultsPerPage);
     }
   }, [page, resultsPerPage, sortBy]);
 
@@ -55,7 +55,13 @@ const App = () => {
         resultsPerPage={resultsPerPage}
         sortBy={sortBy}
       />
-      <Parameters setResultsPerPage={setResultsPerPage} setSortBy={setSortBy} />
+      <Parameters
+        setResultsPerPage={setResultsPerPage}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        reverse={reverse}
+        setReverse={setReverse}
+      />
       {load && <LoadingBar />}
       {searched && !load && (
         <SearchResults
