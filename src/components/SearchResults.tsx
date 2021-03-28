@@ -29,7 +29,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       <div className="nes-container with-title is-centered">
         <p className="title">
           {!error.active
-            ? `Page ${page} - Results ${
+            ? `Page ${page} of ${pagesArray.length} - Results ${
                 page * resultsPerPage - (resultsPerPage - 1)
               }-${
                 page * resultsPerPage -
