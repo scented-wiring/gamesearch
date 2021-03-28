@@ -30,6 +30,7 @@ export type SearchBarProps = {
   setLoad: (active: boolean) => void;
   resultsPerPage: number;
   sortBy: string;
+  exact: boolean;
 };
 
 export type SearchResultsProps = {
@@ -52,4 +53,6 @@ export type ParametersProps = {
   setSortBy: (active: string) => void;
   reverse: boolean;
   setReverse: (active: boolean) => void;
+  exact: boolean;
+  setExact: (active: boolean) => void;
 };

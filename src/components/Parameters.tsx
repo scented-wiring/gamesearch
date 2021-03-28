@@ -8,6 +8,8 @@ const Parameters: React.FC<ParametersProps> = ({
   setSortBy,
   reverse,
   setReverse,
+  exact,
+  setExact,
 }) => {
   const handleReverse = (sortBy: string) => {
     !reverse ? setReverse(true) : setReverse(false);
@@ -73,7 +75,11 @@ const Parameters: React.FC<ParametersProps> = ({
               <span>Reverse order</span>
             </label>
             <label>
-              <input type="checkbox" className="nes-checkbox" />
+              <input
+                type="checkbox"
+                className="nes-checkbox"
+                onChange={() => (!exact ? setExact(true) : setExact(false))}
+              />
               <span>Match exact query</span>
             </label>
             <label>
