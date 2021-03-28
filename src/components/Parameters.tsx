@@ -28,6 +28,7 @@ const Parameters: React.FC<ParametersProps> = ({
             <div className="nes-select">
               <select
                 required
+                defaultValue={"20"}
                 id="default_select"
                 onChange={(e) => {
                   setResultsPerPage(parseInt(e.target.value));
@@ -35,9 +36,7 @@ const Parameters: React.FC<ParametersProps> = ({
               >
                 <option value="5">5</option>
                 <option value="10">10</option>
-                <option selected={true} value="20">
-                  20
-                </option>
+                <option value="20">20</option>
                 <option value="40">40</option>
               </select>
             </div>
@@ -59,7 +58,7 @@ const Parameters: React.FC<ParametersProps> = ({
                 <option value={!reverse ? "-released" : "released"}>
                   Released
                 </option>
-                <option value={!reverse ? "-metacrtic" : "metacritic"}>
+                <option value={!reverse ? "-metacritic" : "metacritic"}>
                   Metacritic Rating
                 </option>
               </select>
@@ -81,10 +80,6 @@ const Parameters: React.FC<ParametersProps> = ({
                 onChange={() => (!exact ? setExact(true) : setExact(false))}
               />
               <span>Match exact query</span>
-            </label>
-            <label>
-              <input type="checkbox" className="nes-checkbox" />
-              <span>Exclude obscure results</span>
             </label>
           </div>
         </div>

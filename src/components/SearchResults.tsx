@@ -11,12 +11,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   error,
   page,
   setPage,
-  query,
-  setData,
-  setError,
-  searched,
-  setSearched,
-  setLoad,
   resultsPerPage,
 }) => {
   let pagesArray: number[] = [];
@@ -29,7 +23,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   };
 
   generatePageNumbers(Math.ceil(data.count / resultsPerPage));
-  console.log(pagesArray);
 
   return (
     <div className="SearchResults">

@@ -74,12 +74,6 @@ const App = () => {
           error={error}
           page={page}
           setPage={setPage}
-          query={query}
-          setData={setData}
-          setError={setError}
-          searched={searched}
-          setSearched={setSearched}
-          setLoad={setLoad}
           resultsPerPage={resultsPerPage}
         />
       )}

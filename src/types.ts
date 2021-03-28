@@ -10,6 +10,7 @@ export type Game = {
     name: string;
   }[];
   released: string;
+  reviews_count: number;
   metacritic: number;
 };
 
@@ -38,12 +39,6 @@ export type SearchResultsProps = {
   error: { active: boolean; message: string };
   page: number;
   setPage: (active: number) => void;
-  query: string;
-  setData: (active: Data) => void;
-  setError: (active: { active: boolean; message: string }) => void;
-  searched: boolean;
-  setSearched: (active: boolean) => void;
-  setLoad: (active: boolean) => void;
   resultsPerPage: number;
 };
 
