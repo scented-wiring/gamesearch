@@ -101,18 +101,13 @@ const SearchResult: React.FC<Game> = ({
           </div>
         </div>
       )}
+      {rating > 0 && <div className="rating">RAWG Rating: {rating}</div>}
       {metacritic && (
-        <div className="metacritic">
+        <div className="rating">
           Metacritic:&nbsp;
           <div className="metacritic-score" style={divStyle}>
             {metacritic}
           </div>
-        </div>
-      )}
-      {rating > 0 && (
-        <div className="rating">
-          RAWG Rating:&nbsp;
-          <div>{rating}</div>
         </div>
       )}
     </div>

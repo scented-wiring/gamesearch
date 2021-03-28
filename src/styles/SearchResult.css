@@ -45,12 +45,6 @@
   font-size: 11px;
 }
 
-.metacritic {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
 .metacritic-score {
   border: 2px black solid;
   padding-left: 2px;
