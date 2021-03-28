@@ -51,9 +51,13 @@ const SearchResult: React.FC<Game> = ({
           <div className="list">
             {genres.map((result) =>
               genres.length - 1 === genres.indexOf(result) ? (
-                <div className="list-item">{result.name}</div>
+                <div key={genres.indexOf(result)} className="list-item">
+                  {result.name}
+                </div>
               ) : (
-                <div className="list-item">{result.name},&nbsp;</div>
+                <div key={genres.indexOf(result)} className="list-item">
+                  {result.name},&nbsp;
+                </div>
               )
             )}
           </div>
@@ -65,9 +69,13 @@ const SearchResult: React.FC<Game> = ({
           <div className="list">
             {platforms.map((result) =>
               platforms.length - 1 === platforms.indexOf(result) ? (
-                <div className="list-item">{result.platform.name}</div>
+                <div key={platforms.indexOf(result)} className="list-item">
+                  {result.platform.name}
+                </div>
               ) : (
-                <div className="list-item">{result.platform.name},&nbsp;</div>
+                <div key={platforms.indexOf(result)} className="list-item">
+                  {result.platform.name},&nbsp;
+                </div>
               )
             )}
           </div>

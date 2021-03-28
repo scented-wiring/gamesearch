@@ -43,7 +43,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           <div className="SearchResults-cards">
             {data.results.map((game: Game) => {
               return (
-                <div>
+                <div key={data.results.indexOf(game)}>
                   <SearchResult key={data.results.indexOf(game)} {...game} />
                 </div>
               );
@@ -61,11 +61,16 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           {pagesArray.map((pageNo: number) => {
             if (page !== 1 && pageNo === 1) {
               return (
-                <div className="arrow-section">
-                  <div className="arrow" onClick={() => setPage(page - 1)}>
+                <div key="prev-section" className="arrow-section">
+                  <div
+                    key="prev"
+                    className="arrow"
+                    onClick={() => setPage(page - 1)}
+                  >
                     {"<Prev"}
                   </div>
                   <div
+                    key={pagesArray.indexOf(pageNo)}
                     className={pageNo === page ? "page-active" : "page"}
                     onClick={() => setPage(pageNo)}
                   >
@@ -78,14 +83,19 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               pageNo === pagesArray.length
             ) {
               return (
-                <div className="arrow-section">
+                <div key="next-section" className="arrow-section">
                   <div
+                    key={pagesArray.indexOf(pageNo)}
                     className={pageNo === page ? "page-active" : "page"}
                     onClick={() => setPage(pageNo)}
                   >
                     {pageNo}
                   </div>
-                  <div className="arrow" onClick={() => setPage(page + 1)}>
+                  <div
+                    key="next"
+                    className="arrow"
+                    onClick={() => setPage(page + 1)}
+                  >
                     {"Next>"}
                   </div>
                 </div>
@@ -93,6 +103,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             } else {
               return (
                 <div
+                  key={
+                    pageNo === page ? "page-active" : pagesArray.indexOf(pageNo)
+                  }
                   className={pageNo === page ? "page-active" : "page"}
                   onClick={() => setPage(pageNo)}
                 >

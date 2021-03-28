@@ -39,6 +39,7 @@ const App = () => {
       );
       setLoad(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, resultsPerPage, sortBy, exact]);
 
   return (

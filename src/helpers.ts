@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Data, Game } from "./types";
+import { Data } from "./types";
 
 export const search = (
   query: string,
