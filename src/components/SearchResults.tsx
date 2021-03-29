@@ -56,7 +56,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                   <div>
                     {pageNo === 1 && (
                       <div className="jump-to">
-                        <div className="label">Page:</div>
+                        <label>Page:</label>
                         <div className="nes-select is-dark">
                           <select
                             required

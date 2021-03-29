@@ -13,6 +13,10 @@
   display: flex;
   align-items: center;
 }
+.SearchResults label {
+  padding-top: 8px;
+  font-size: 13px;
+}
 
 #dark_select {
   font-size: 12px;
