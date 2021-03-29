@@ -1,5 +1,4 @@
 // Styling
-import "nes.css/css/nes.min.css";
 import "../styles/Header.css";
 
 const Header = () => {

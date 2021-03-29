@@ -8,7 +8,8 @@ import Parameters from "./Parameters";
 import LoadingBar from "./LoadingBar";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
-
+// Styling
+import "nes.css/css/nes.min.css";
 import "../styles/App.css";
 
 const App = () => {

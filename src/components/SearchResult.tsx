@@ -3,7 +3,6 @@ import moment from "moment";
 import { Game } from "../types";
 // Styling
 import noimage from "../noimage.jpg";
-import "nes.css/css/nes.min.css";
 import "../styles/SearchResult.css";
 
 const SearchResult: React.FC<Game> = ({

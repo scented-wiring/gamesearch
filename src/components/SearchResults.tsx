@@ -4,7 +4,6 @@ import SearchResult from "./SearchResult";
 import { Game, SearchResultsProps } from "../types";
 // Styling
 import "../styles/SearchResults.css";
-import "nes.css/css/nes.min.css";
 
 const SearchResults: React.FC<SearchResultsProps> = ({
   data,
