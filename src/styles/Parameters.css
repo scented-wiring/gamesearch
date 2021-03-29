@@ -34,16 +34,25 @@
 }
 
 .dialog-menu {
-  width: 1000px;
+  width: 700px;
+  padding: 0;
 }
 
 .dialog-menu label {
-  margin: 10px;
+  display: flex;
+  margin: 5px 10px;
+  font-size: 11px;
+}
+
+.category-title {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .filter-checkboxes {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .dialog-menu button {
