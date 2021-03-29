@@ -22,7 +22,7 @@ const Parameters: React.FC<ParametersProps> = ({
     <div className="Parameters">
       <div className="nes-container with-title is-centered">
         <p className="title">Search parameters</p>
-        <div className="params">
+        <div className="params-row">
           <div className="param">
             <label htmlFor="default_select">Results per page:</label>
             <div className="nes-select">
@@ -82,6 +82,77 @@ const Parameters: React.FC<ParametersProps> = ({
               <span>Match exact query</span>
             </label>
           </div>
+        </div>
+        <div className="params-row">
+          <section>
+            <button
+              type="button"
+              className="nes-btn is-primary"
+              onClick={() =>
+                (document.getElementById(
+                  "dialog-genre"
+                )! as HTMLDialogElement).showModal()
+              }
+            >
+              Genres
+            </button>
+            <dialog className="nes-dialog" id="dialog-genre">
+              <form method="dialog">
+                <p className="title">Filter by genre</p>
+                <p>Alert: this is a dialog.</p>
+                <menu className="dialog-menu">
+                  <button className="nes-btn">Cancel</button>
+                  <button className="nes-btn is-primary">Confirm</button>
+                </menu>
+              </form>
+            </dialog>
+          </section>
+          <section>
+            <button
+              type="button"
+              className="nes-btn is-primary"
+              onClick={() =>
+                (document.getElementById(
+                  "dialog-platform"
+                )! as HTMLDialogElement).showModal()
+              }
+            >
+              Platforms
+            </button>
+            <dialog className="nes-dialog" id="dialog-platform">
+              <form method="dialog">
+                <p className="title">Filter by platform</p>
+                <p>Alert: this is a dialog.</p>
+                <menu className="dialog-menu">
+                  <button className="nes-btn">Cancel</button>
+                  <button className="nes-btn is-primary">Confirm</button>
+                </menu>
+              </form>
+            </dialog>
+          </section>
+          <section>
+            <button
+              type="button"
+              className="nes-btn is-primary"
+              onClick={() =>
+                (document.getElementById(
+                  "dialog-store"
+                )! as HTMLDialogElement).showModal()
+              }
+            >
+              Stores
+            </button>
+            <dialog className="nes-dialog" id="dialog-store">
+              <form method="dialog">
+                <p className="title">Filter by store</p>
+                <p>Alert: this is a dialog.</p>
+                <menu className="dialog-menu">
+                  <button className="nes-btn">Cancel</button>
+                  <button className="nes-btn is-primary">Confirm</button>
+                </menu>
+              </form>
+            </dialog>
+          </section>
         </div>
       </div>
     </div>

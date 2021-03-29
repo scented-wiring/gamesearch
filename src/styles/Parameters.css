@@ -15,13 +15,19 @@
   font-size: 12px;
 }
 
-.params {
+.params-row {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .checkboxes {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.Parameters section {
+  margin-right: 10px;
 }
