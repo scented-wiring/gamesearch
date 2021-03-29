@@ -2,6 +2,36 @@
   height: 100%;
 }
 
+.pages {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  margin: 0 10px;
+}
+
+.page-active {
+  color: blue;
+  margin: 0 3px;
+}
+
+.arrow-section {
+  display: flex;
+}
+
+.arrow {
+  margin: 0 8px;
+}
+
+.SearchResults input {
+  text-align: center;
+  font-size: 12px;
+  height: 25px;
+  width: 100px;
+}
+
 .SearchResults .nes-container:not(.SearchResults-cards .nes-container) {
   width: 95vw;
   margin-top: 18px;
@@ -9,6 +39,7 @@
 }
 
 .SearchResults-cards {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -26,27 +57,4 @@
 
 .nes-balloon {
   height: 70px;
-}
-
-.pages {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.page {
-  margin: 0 3px;
-}
-
-.page-active {
-  color: blue;
-  margin: 0 3px;
-}
-
-.arrow-section {
-  display: flex;
-}
-
-.arrow {
-  margin: 0 8px;
 }

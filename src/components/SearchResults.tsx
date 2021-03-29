@@ -39,6 +39,82 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               } of ${data.count}`
             : "Whoops!"}
         </p>
+        {pagesArray.length > 1 && (
+          <div className="pages">
+            {pagesArray.map((pageNo: number) => {
+              const standardPageLink = (
+                <div
+                  key={pagesArray.indexOf(pageNo)}
+                  className={pageNo === page ? "page-active" : "page"}
+                  onClick={() => setPage(pageNo)}
+                >
+                  {pageNo}
+                </div>
+              );
+              if (pagesArray.length > 10) {
+                return (
+                  <div>
+                    {pageNo === 1 && (
+                      <div>
+                        <label>Jump to:</label>
+                        <div className="nes-select is-dark">
+                          <select
+                            required
+                            id="dark_select"
+                            onChange={(e) => setPage(parseInt(e.target.value))}
+                          >
+                            <option value="" disabled selected hidden>
+                              Select page
+                            </option>
+                            {pagesArray.map((page) => (
+                              <option value={pagesArray.indexOf(page) + 1}>
+                                {pagesArray.indexOf(page) + 1}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              } else {
+                if (pagesArray.length >= 3 && page !== 1 && pageNo === 1) {
+                  return (
+                    <div key="prev-section" className="arrow-section">
+                      <div
+                        key="prev"
+                        className="arrow"
+                        onClick={() => setPage(page - 1)}
+                      >
+                        {"<Prev"}
+                      </div>
+                      {standardPageLink}
+                    </div>
+                  );
+                } else if (
+                  pagesArray.length >= 3 &&
+                  page !== pagesArray.length &&
+                  pageNo === pagesArray.length
+                ) {
+                  return (
+                    <div key="next-section" className="arrow-section">
+                      {standardPageLink}
+                      <div
+                        key="next"
+                        className="arrow"
+                        onClick={() => setPage(page + 1)}
+                      >
+                        {"Next>"}
+                      </div>
+                    </div>
+                  );
+                } else {
+                  return standardPageLink;
+                }
+              }
+            })}
+          </div>
+        )}
         {!error.active ? (
           <div className="SearchResults-cards">
             {data.results.map((game: Game) => {
@@ -55,65 +131,6 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             <div className="nes-balloon from-left">
               <p>{error.message}</p>
             </div>
-          </div>
-        )}
-        {pagesArray.length > 1 && (
-          <div className="pages">
-            {pagesArray.map((pageNo: number) => {
-              const standardPageLink = (
-                <div
-                  key={pagesArray.indexOf(pageNo)}
-                  className={pageNo === page ? "page-active" : "page"}
-                  onClick={() => setPage(pageNo)}
-                >
-                  {pageNo}
-                </div>
-              );
-              if (page !== 1 && pageNo === 1) {
-                return (
-                  <div key="prev-section" className="arrow-section">
-                    <div
-                      key="prev"
-                      className="arrow"
-                      onClick={() => setPage(page - 1)}
-                    >
-                      {"<Prev"}
-                    </div>
-                    {standardPageLink}
-                  </div>
-                );
-              } else if (
-                page !== pagesArray.length &&
-                pageNo === pagesArray.length
-              ) {
-                return (
-                  <div key="next-section" className="arrow-section">
-                    {standardPageLink}
-                    <div
-                      key="next"
-                      className="arrow"
-                      onClick={() => setPage(page + 1)}
-                    >
-                      {"Next>"}
-                    </div>
-                  </div>
-                );
-              } else {
-                return (
-                  <div
-                    key={
-                      pageNo === page
-                        ? "page-active"
-                        : pagesArray.indexOf(pageNo)
-                    }
-                    className={pageNo === page ? "page-active" : "page"}
-                    onClick={() => setPage(pageNo)}
-                  >
-                    {pageNo}
-                  </div>
-                );
-              }
-            })}
           </div>
         )}
       </div>
