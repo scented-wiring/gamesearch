@@ -28,11 +28,6 @@
   align-items: flex-start;
 }
 
-.title {
-  display: flex;
-  justify-content: center;
-}
-
 .dialog-menu {
   width: 700px;
   padding: 0;
@@ -61,4 +56,8 @@
 
 .Parameters section {
   margin-right: 10px;
+}
+
+.Parameters button {
+  font-size: 13px;
 }

@@ -113,11 +113,11 @@ const Parameters: React.FC<ParametersProps> = ({
                 )! as HTMLDialogElement).showModal()
               }
             >
-              Genres
+              Filter Genres
             </button>
             <dialog className="nes-dialog" id="dialog-genre">
               <form method="dialog">
-                <p className="title">Filter genres</p>
+                <p className="title">Filter Genres</p>
                 <menu className="dialog-menu">
                   <div className="filter-checkboxes">
                     <label>
@@ -345,11 +345,11 @@ const Parameters: React.FC<ParametersProps> = ({
                 )! as HTMLDialogElement).showModal()
               }
             >
-              Platforms
+              Filter Platforms
             </button>
             <dialog className="nes-dialog" id="dialog-platform">
               <form method="dialog">
-                <p className="title">Filter platforms</p>
+                <p className="title">Filter Platforms</p>
                 <menu className="dialog-menu">
                   <div className="category-title">Desktop</div>
                   <div className="filter-checkboxes">
@@ -937,11 +937,11 @@ const Parameters: React.FC<ParametersProps> = ({
                 )! as HTMLDialogElement).showModal()
               }
             >
-              Stores
+              Filter Stores
             </button>
             <dialog className="nes-dialog" id="dialog-store">
               <form method="dialog" className="filter-form">
-                <p className="title">Filter stores</p>
+                <p className="title">Filter Stores</p>
                 <menu className="dialog-menu">
                   <div className="filter-checkboxes">
                     <label>
