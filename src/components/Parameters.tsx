@@ -27,7 +27,6 @@ const Parameters: React.FC<ParametersProps> = ({
     array: number[],
     setArray: (active: number[]) => void
   ) => {
-    console.log(e);
     const index = array.indexOf(parseInt(e));
     if (array.includes(parseInt(e))) {
       setArray(array.filter((item) => array.indexOf(item) !== index));
@@ -116,7 +115,7 @@ const Parameters: React.FC<ParametersProps> = ({
             </button>
             <dialog className="nes-dialog" id="dialog-genre">
               <form method="dialog">
-                <p className="title">Exclude genres</p>
+                <p className="title">Filter genres:</p>
                 <menu className="dialog-menu">
                   <div className="filter-checkboxes">
                     <label>
@@ -227,7 +226,7 @@ const Parameters: React.FC<ParametersProps> = ({
                         }
                         value={11}
                       />
-                      <span>Aracde</span>
+                      <span>Arcade</span>
                     </label>
                     <label>
                       <input
@@ -271,7 +270,7 @@ const Parameters: React.FC<ParametersProps> = ({
                         }
                         value={59}
                       />
-                      <span>Massively Multiplayer</span>
+                      <span>MMORPG</span>
                     </label>
                     <label>
                       <input
@@ -348,7 +347,7 @@ const Parameters: React.FC<ParametersProps> = ({
             </button>
             <dialog className="nes-dialog" id="dialog-platform">
               <form method="dialog">
-                <p className="title">Filter by platform</p>
+                <p className="title">Filter by platform:</p>
                 <p>Alert: this is a dialog.</p>
                 <menu className="dialog-menu">
                   <button className="nes-btn">Cancel</button>
@@ -371,7 +370,7 @@ const Parameters: React.FC<ParametersProps> = ({
             </button>
             <dialog className="nes-dialog" id="dialog-store">
               <form method="dialog" className="filter-form">
-                <p className="title">Exclude stores</p>
+                <p className="title">Filter stores:</p>
                 <menu className="dialog-menu">
                   <div className="filter-checkboxes">
                     <label>

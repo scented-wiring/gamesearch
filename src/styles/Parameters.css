@@ -33,19 +33,21 @@
   justify-content: center;
 }
 
-.filter-form {
-  display: flex;
-  flex-direction: column;
+.dialog-menu {
+  width: 1000px;
+}
+
+.dialog-menu label {
+  margin: 10px;
 }
 
 .filter-checkboxes {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.filter-buttons button {
-  margin: 15px 15px 0 15px;
+.dialog-menu button {
+  margin-top: 15px;
 }
 
 .Parameters section {
