@@ -10,12 +10,24 @@ const Parameters: React.FC<ParametersProps> = ({
   setReverse,
   exact,
   setExact,
+  stores,
+  setStores,
 }) => {
   const handleReverse = (sortBy: string) => {
     !reverse ? setReverse(true) : setReverse(false);
     sortBy.includes("-")
       ? setSortBy(sortBy.replace("-", ""))
       : setSortBy(`-${sortBy}`);
+  };
+
+  const handleFilter = (e: string) => {
+    console.log(e);
+    const index = stores.indexOf(parseInt(e));
+    if (stores.includes(parseInt(e))) {
+      setStores(stores.filter((store) => stores.indexOf(store) !== index));
+    } else {
+      setStores([...stores, parseInt(e)]);
+    }
   };
 
   return (
@@ -143,12 +155,104 @@ const Parameters: React.FC<ParametersProps> = ({
               Stores
             </button>
             <dialog className="nes-dialog" id="dialog-store">
-              <form method="dialog">
-                <p className="title">Filter by store</p>
-                <p>Alert: this is a dialog.</p>
+              <form method="dialog" className="filter-form">
+                <p className="title">Exclude stores</p>
                 <menu className="dialog-menu">
-                  <button className="nes-btn">Cancel</button>
-                  <button className="nes-btn is-primary">Confirm</button>
+                  <div className="filter-checkboxes">
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={1}
+                      />
+                      <span>Steam</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={3}
+                      />
+                      <span>Playstation Store</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={2}
+                      />
+                      <span>Xbox Store</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={4}
+                      />
+                      <span>App Store</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={5}
+                      />
+                      <span>GOG</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={6}
+                      />
+                      <span>Nintendo Store</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={7}
+                      />
+                      <span>Xbox 360 Store</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={8}
+                      />
+                      <span>Google Play</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={9}
+                      />
+                      <span>itch.io</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) => handleFilter(e.target.value)}
+                        value={11}
+                      />
+                      <span>Epic Games</span>
+                    </label>
+                  </div>
+                  <div className="filter-buttons">
+                    <button className="nes-btn is-primary">OK</button>
+                  </div>
                 </menu>
               </form>
             </dialog>

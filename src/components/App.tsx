@@ -23,6 +23,7 @@ const App = () => {
   const [sortBy, setSortBy] = useState("-rating");
   const [reverse, setReverse] = useState(false);
   const [exact, setExact] = useState(false);
+  const [stores, setStores] = useState([1, 3, 2, 4, 5, 6, 7, 8, 9, 11]);
 
   useEffect(() => {
     setPage(1);
@@ -33,7 +34,9 @@ const App = () => {
       setLoad(true);
       axios
         .get(
-          `https://api.rawg.io/api/games?key=${process.env.REACT_APP_KEY}&search=${query}&search_precise=true&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}`
+          `https://api.rawg.io/api/games?key=${
+            process.env.REACT_APP_KEY
+          }&search=${query}&search_precise=true&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}&stores=${stores.toString()}`
         )
         .then((response) => {
           setData(response.data);
@@ -51,7 +54,7 @@ const App = () => {
           setData({ count: 0, results: [] });
         });
     }
-  }, [query, page, resultsPerPage, sortBy, exact]);
+  }, [query, page, resultsPerPage, sortBy, exact, stores]);
 
   return (
     <div className="App">
@@ -70,6 +73,8 @@ const App = () => {
         setReverse={setReverse}
         exact={exact}
         setExact={setExact}
+        stores={stores}
+        setStores={setStores}
       />
       {load && <LoadingBar />}
       {searched && !load && (
