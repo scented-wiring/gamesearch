@@ -10,6 +10,8 @@ const Parameters: React.FC<ParametersProps> = ({
   setReverse,
   exact,
   setExact,
+  genres,
+  setGenres,
   stores,
   setStores,
 }) => {
@@ -20,13 +22,17 @@ const Parameters: React.FC<ParametersProps> = ({
       : setSortBy(`-${sortBy}`);
   };
 
-  const handleFilter = (e: string) => {
+  const handleFilter = (
+    e: string,
+    array: number[],
+    setArray: (active: number[]) => void
+  ) => {
     console.log(e);
-    const index = stores.indexOf(parseInt(e));
-    if (stores.includes(parseInt(e))) {
-      setStores(stores.filter((store) => stores.indexOf(store) !== index));
+    const index = array.indexOf(parseInt(e));
+    if (array.includes(parseInt(e))) {
+      setArray(array.filter((item) => array.indexOf(item) !== index));
     } else {
-      setStores([...stores, parseInt(e)]);
+      setArray([...array, parseInt(e)]);
     }
   };
 
@@ -110,11 +116,220 @@ const Parameters: React.FC<ParametersProps> = ({
             </button>
             <dialog className="nes-dialog" id="dialog-genre">
               <form method="dialog">
-                <p className="title">Filter by genre</p>
-                <p>Alert: this is a dialog.</p>
+                <p className="title">Exclude genres</p>
                 <menu className="dialog-menu">
-                  <button className="nes-btn">Cancel</button>
-                  <button className="nes-btn is-primary">Confirm</button>
+                  <div className="filter-checkboxes">
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={4}
+                      />
+                      <span>Action</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={51}
+                      />
+                      <span>Indie</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={3}
+                      />
+                      <span>Adventure</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={5}
+                      />
+                      <span>RPG</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={10}
+                      />
+                      <span>Strategy</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={2}
+                      />
+                      <span>Shooter</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={40}
+                      />
+                      <span>Casual</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={14}
+                      />
+                      <span>Simulation</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={7}
+                      />
+                      <span>Puzzle</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={11}
+                      />
+                      <span>Aracde</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={83}
+                      />
+                      <span>Platformer</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={1}
+                      />
+                      <span>Racing</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={15}
+                      />
+                      <span>Sports</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={59}
+                      />
+                      <span>Massively Multiplayer</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={6}
+                      />
+                      <span>Fighting</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={19}
+                      />
+                      <span>Family</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={28}
+                      />
+                      <span>Board Games</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={34}
+                      />
+                      <span>Educational</span>
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        className="nes-checkbox"
+                        onChange={(e) =>
+                          handleFilter(e.target.value, genres, setGenres)
+                        }
+                        value={17}
+                      />
+                      <span>Card</span>
+                    </label>
+                  </div>
+                  <button className="nes-btn is-success">OK</button>
                 </menu>
               </form>
             </dialog>
@@ -163,7 +378,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={1}
                       />
                       <span>Steam</span>
@@ -172,7 +389,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={3}
                       />
                       <span>Playstation Store</span>
@@ -181,7 +400,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={2}
                       />
                       <span>Xbox Store</span>
@@ -190,7 +411,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={4}
                       />
                       <span>App Store</span>
@@ -199,7 +422,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={5}
                       />
                       <span>GOG</span>
@@ -208,7 +433,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={6}
                       />
                       <span>Nintendo Store</span>
@@ -217,7 +444,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={7}
                       />
                       <span>Xbox 360 Store</span>
@@ -226,7 +455,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={8}
                       />
                       <span>Google Play</span>
@@ -235,7 +466,9 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={9}
                       />
                       <span>itch.io</span>
@@ -244,14 +477,16 @@ const Parameters: React.FC<ParametersProps> = ({
                       <input
                         type="checkbox"
                         className="nes-checkbox"
-                        onChange={(e) => handleFilter(e.target.value)}
+                        onChange={(e) =>
+                          handleFilter(e.target.value, stores, setStores)
+                        }
                         value={11}
                       />
                       <span>Epic Games</span>
                     </label>
                   </div>
                   <div className="filter-buttons">
-                    <button className="nes-btn is-primary">OK</button>
+                    <button className="nes-btn is-success">OK</button>
                   </div>
                 </menu>
               </form>

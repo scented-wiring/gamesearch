@@ -23,6 +23,8 @@ const App = () => {
   const [sortBy, setSortBy] = useState("-rating");
   const [reverse, setReverse] = useState(false);
   const [exact, setExact] = useState(false);
+  // prettier-ignore
+  const [genres, setGenres] = useState([4, 51, 3, 5, 10, 2, 40, 14, 7, 11, 83, 1, 15, 59, 6, 19, 28, 34, 17])
   const [stores, setStores] = useState([1, 3, 2, 4, 5, 6, 7, 8, 9, 11]);
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const App = () => {
         .get(
           `https://api.rawg.io/api/games?key=${
             process.env.REACT_APP_KEY
-          }&search=${query}&search_precise=true&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}&stores=${stores.toString()}`
+          }&search=${query}&search_precise=true&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}&stores=${stores.toString()}&genres=${genres.toString()}`
         )
         .then((response) => {
           setData(response.data);
@@ -54,7 +56,7 @@ const App = () => {
           setData({ count: 0, results: [] });
         });
     }
-  }, [query, page, resultsPerPage, sortBy, exact, stores]);
+  }, [query, page, resultsPerPage, sortBy, exact, genres, stores]);
 
   return (
     <div className="App">
@@ -73,6 +75,8 @@ const App = () => {
         setReverse={setReverse}
         exact={exact}
         setExact={setExact}
+        genres={genres}
+        setGenres={setGenres}
         stores={stores}
         setStores={setStores}
       />

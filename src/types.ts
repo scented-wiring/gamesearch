@@ -48,6 +48,8 @@ export type ParametersProps = {
   setReverse: (active: boolean) => void;
   exact: boolean;
   setExact: (active: boolean) => void;
+  genres: number[];
+  setGenres: (active: number[]) => void;
   stores: number[];
   setStores: (active: number[]) => void;
 };
