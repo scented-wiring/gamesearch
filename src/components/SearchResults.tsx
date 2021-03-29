@@ -55,8 +55,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                 return (
                   <div>
                     {pageNo === 1 && (
-                      <div>
-                        <label>Jump to:</label>
+                      <div className="jump-to">
+                        <div className="label">Page:</div>
                         <div className="nes-select is-dark">
                           <select
                             required
@@ -64,7 +64,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                             onChange={(e) => setPage(parseInt(e.target.value))}
                           >
                             <option value="" disabled selected hidden>
-                              Select page
+                              {page}
                             </option>
                             {pagesArray.map((page) => (
                               <option value={pagesArray.indexOf(page) + 1}>

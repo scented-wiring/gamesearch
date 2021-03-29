@@ -6,6 +6,17 @@
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  padding: 8px 0;
+}
+
+.jump-to {
+  display: flex;
+  align-items: center;
+}
+
+#dark_select {
+  font-size: 12px;
+  height: 40px;
 }
 
 .page {
@@ -14,7 +25,7 @@
 
 .page-active {
   color: blue;
-  margin: 0 3px;
+  margin: 0 10px;
 }
 
 .arrow-section {
@@ -23,13 +34,6 @@
 
 .arrow {
   margin: 0 8px;
-}
-
-.SearchResults input {
-  text-align: center;
-  font-size: 12px;
-  height: 25px;
-  width: 100px;
 }
 
 .SearchResults .nes-container:not(.SearchResults-cards .nes-container) {
