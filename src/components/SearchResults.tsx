@@ -15,7 +15,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   let pagesArray: number[] = [];
 
   const generatePageNumbers = (num: number) => {
-    let i;
+    let i: number;
     for (i = 0; i < num; i++) {
       pagesArray.push(i + 1);
     }
@@ -52,29 +52,28 @@ const SearchResults: React.FC<SearchResultsProps> = ({
               );
               if (pagesArray.length > 10) {
                 return (
-                  <div>
-                    {pageNo === 1 && (
-                      <div className="jump-to">
-                        <label>Page:</label>
-                        <div className="nes-select is-dark">
-                          <select
-                            required
-                            id="dark_select"
-                            onChange={(e) => setPage(parseInt(e.target.value))}
-                          >
-                            <option value="" disabled selected hidden>
-                              {page}
+                  pageNo === 1 && (
+                    <div key="jump-to" className="jump-to">
+                      <label>Page:</label>
+                      <div className="nes-select is-dark">
+                        <select
+                          required
+                          defaultValue={page}
+                          id="dark_select"
+                          onChange={(e) => setPage(parseInt(e.target.value))}
+                        >
+                          {pagesArray.map((page) => (
+                            <option
+                              key={pagesArray.indexOf(page)}
+                              value={pagesArray.indexOf(page) + 1}
+                            >
+                              {pagesArray.indexOf(page) + 1}
                             </option>
-                            {pagesArray.map((page) => (
-                              <option value={pagesArray.indexOf(page) + 1}>
-                                {pagesArray.indexOf(page) + 1}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
+                          ))}
+                        </select>
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )
                 );
               } else {
                 if (pagesArray.length >= 3 && page !== 1 && pageNo === 1) {
@@ -115,7 +114,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
           </div>
         )}
         {!error.active ? (
-          <div className="SearchResults-cards">
+          <div key="SearchResults" className="SearchResults-cards">
             {data.results.map((game: Game) => {
               return (
                 <div key={data.results.indexOf(game)}>
