@@ -20,3 +20,29 @@
   height: 40px;
   padding: 2px 8px;
 }
+
+@media only screen and (max-width: 600px) {
+  .nes-input {
+    font-size: 10px;
+    width: 240px;
+    height: 30px;
+  }
+
+  .Searchbar .nes-btn {
+    font-size: 10px;
+    width: 90px;
+    height: 30px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .nes-input {
+    font-size: 10px;
+    width: 170px;
+  }
+
+  .Searchbar .nes-btn {
+    font-size: 9px;
+    width: 80px;
+  }
+}
