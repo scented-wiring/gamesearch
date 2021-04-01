@@ -1,3 +1,6 @@
+import $ from "jquery";
+import { useEffect } from "react";
+
 import { ParametersProps } from "../types";
 
 import "../styles/Parameters.css";
@@ -17,6 +20,21 @@ const Parameters: React.FC<ParametersProps> = ({
   stores,
   setStores,
 }) => {
+  useEffect(() => {
+    $("#filter-genres input:checkbox:checked").length &&
+      $("#filter-genres-button").addClass("nes-btn is-success");
+    !$("#filter-genres input:checkbox:checked").length &&
+      $("#filter-genres-button").removeClass("is-success");
+    $("#filter-platforms input:checkbox:checked").length &&
+      $("#filter-platforms-button").addClass("nes-btn is-success");
+    !$("#filter-platforms input:checkbox:checked").length &&
+      $("#filter-platforms-button").removeClass("is-success");
+    $("#filter-stores input:checkbox:checked").length &&
+      $("#filter-stores-button").addClass("nes-btn is-success");
+    !$("#filter-stores input:checkbox:checked").length &&
+      $("#filter-stores-button").removeClass("is-success");
+  });
+
   const handleReverse = (sortBy: string) => {
     !reverse ? setReverse(true) : setReverse(false);
     sortBy.includes("-")
@@ -106,6 +124,7 @@ const Parameters: React.FC<ParametersProps> = ({
           <section>
             <button
               type="button"
+              id="filter-genres-button"
               className="nes-btn is-primary"
               onClick={() =>
                 (document.getElementById(
@@ -116,7 +135,7 @@ const Parameters: React.FC<ParametersProps> = ({
               Filter Genres
             </button>
             <dialog className="nes-dialog" id="dialog-genre">
-              <form method="dialog">
+              <form id="filter-genres" method="dialog">
                 <p className="title">Filter Genres</p>
                 <menu className="dialog-menu">
                   <div className="filter-checkboxes">
@@ -338,6 +357,7 @@ const Parameters: React.FC<ParametersProps> = ({
           <section>
             <button
               type="button"
+              id="filter-platforms-button"
               className="nes-btn is-primary"
               onClick={() =>
                 (document.getElementById(
@@ -348,7 +368,7 @@ const Parameters: React.FC<ParametersProps> = ({
               Filter Platforms
             </button>
             <dialog className="nes-dialog" id="dialog-platform">
-              <form method="dialog">
+              <form method="dialog" id="filter-platforms">
                 <p className="title">Filter Platforms</p>
                 <menu className="dialog-menu">
                   <div className="category-title">Desktop</div>
@@ -930,6 +950,7 @@ const Parameters: React.FC<ParametersProps> = ({
           <section>
             <button
               type="button"
+              id="filter-stores-button"
               className="nes-btn is-primary"
               onClick={() =>
                 (document.getElementById(
@@ -940,7 +961,7 @@ const Parameters: React.FC<ParametersProps> = ({
               Filter Stores
             </button>
             <dialog className="nes-dialog" id="dialog-store">
-              <form method="dialog" className="filter-form">
+              <form method="dialog" id="filter-stores">
                 <p className="title">Filter Stores</p>
                 <menu className="dialog-menu">
                   <div className="filter-checkboxes">
