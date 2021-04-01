@@ -5,27 +5,45 @@
 .Parameters .nes-container {
   margin-top: 20px;
   background: white;
+  padding: 20px 40px;
 }
 
-.param {
-  margin: 0 5px;
+#toggle-pop-up {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+#pop-up-status {
+  margin-top: 12px;
+  margin-left: 10px;
+  color: blue;
+}
+
+#pop-up {
+  display: none;
 }
 
 .Parameters label {
-  font-size: 12px;
+  font-size: 15px;
+}
+
+.Parameters select {
+  font-size: 15px;
 }
 
 .params-row {
   display: flex;
-  align-items: flex-end;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.checkboxes {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.param {
+  margin: 0 10px;
+}
+
+.Parameters button {
+  font-size: 13px;
 }
 
 .dialog-menu {
@@ -33,15 +51,16 @@
   padding: 0;
 }
 
+.category-title {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 .dialog-menu label {
   display: flex;
   margin: 5px 10px;
   font-size: 11px;
-}
-
-.category-title {
-  margin-top: 10px;
-  margin-bottom: 5px;
 }
 
 .filter-checkboxes {
@@ -54,10 +73,46 @@
   margin-top: 15px;
 }
 
-.Parameters section {
-  margin-right: 10px;
+@media only screen and (max-width: 600px) {
+  .Parameters .nes-container {
+    padding: 20px 20px;
+  }
+
+  .nes-container.with-title > .title {
+    font-size: 0.8rem;
+  }
+
+  #pop-up-status {
+    font-size: 12px;
+  }
+
+  .Parameters select {
+    font-size: 10px;
+  }
+
+  .Parameters label {
+    font-size: 10px;
+  }
+
+  .param button {
+    font-size: 10px;
+  }
+
+  .param {
+    margin: 0 3px;
+  }
 }
 
-.Parameters button {
-  font-size: 13px;
+@media only screen and (max-width: 395px) {
+  .Parameters .nes-container {
+    padding: 20px 10px;
+  }
+
+  .params-row {
+    flex-direction: column;
+  }
+
+  .param {
+    margin-bottom: 5px;
+  }
 }
