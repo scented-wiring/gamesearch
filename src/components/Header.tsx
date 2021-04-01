@@ -7,7 +7,6 @@ const Header = () => {
       <div className="nes-container is-rounded is-dark">
         <div className="Title">
           <h1>Gamesearch</h1>
-          <i className="nes-icon coin is-medium"></i>
         </div>
       </div>
     </div>

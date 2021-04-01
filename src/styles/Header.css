@@ -1,13 +1,34 @@
 .Header {
+  display: flex;
+  justify-content: center;
   width: 605px;
   margin-top: 5px;
 }
 
 .Title {
   display: flex;
+  padding-top: 5px;
   font-size: 25px;
 }
 
-.Title i {
-  margin: 12px 0 0 5px;
+@media only screen and (max-width: 600px) {
+  .Header {
+    width: 400px;
+  }
+
+  .Title {
+    padding-top: 5px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .Header {
+    width: 280px;
+  }
+
+  .Title {
+    padding-top: 5px;
+    font-size: 11px;
+  }
 }
