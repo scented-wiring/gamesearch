@@ -137,7 +137,11 @@
   }
 
   .params-row {
-    flex-direction: column;
+    display: block;
+  }
+
+  .params-row button {
+    width: 180px;
   }
 
   .param {
