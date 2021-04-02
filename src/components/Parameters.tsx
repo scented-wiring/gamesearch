@@ -63,6 +63,27 @@ const Parameters: React.FC<ParametersProps> = ({
     }
   };
 
+  const renderCheckboxes = (
+    array: { name: string; value: number }[],
+    params: number[],
+    setParams: (active: number[]) => void
+  ) => {
+    return array.map((object) => {
+      return (
+        <label key={array.indexOf(object)}>
+          <input
+            type="checkbox"
+            className="nes-checkbox"
+            onChange={(e) => handleFilter(e.target.value, params, setParams)}
+            value={object.value}
+            key={array.indexOf(object)}
+          />
+          <span>{object.name}</span>
+        </label>
+      );
+    });
+  };
+
   return (
     <div className="Parameters">
       <div className="nes-container with-title is-centered">
@@ -136,26 +157,7 @@ const Parameters: React.FC<ParametersProps> = ({
                     <p className="title">Filter by genre:</p>
                     <menu className="dialog-menu">
                       <div className="filter-checkboxes">
-                        {genresArray.map((genre) => {
-                          return (
-                            <label key={genresArray.indexOf(genre)}>
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    genres,
-                                    setGenres
-                                  )
-                                }
-                                value={genre.value}
-                                key={genresArray.indexOf(genre)}
-                              />
-                              <span>{genre.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(genresArray, genres, setGenres)}
                       </div>
                       <button className="nes-btn is-success">Close</button>
                     </menu>
@@ -183,186 +185,59 @@ const Parameters: React.FC<ParametersProps> = ({
                     <menu className="dialog-menu">
                       <div className="category-title">Desktop</div>
                       <div className="filter-checkboxes" id="desktop">
-                        {platformsArray[0].desktop.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].desktop.indexOf(platform)}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].desktop.indexOf(
-                                  platform
-                                )}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].desktop,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <div className="category-title">Sony</div>
                       <div className="filter-checkboxes" id="sony">
-                        {platformsArray[0].sony.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].sony.indexOf(platform)}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].sony.indexOf(platform)}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].sony,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <div className="category-title">Nintendo</div>
                       <div className="filter-checkboxes" id="nintendo">
-                        {platformsArray[0].nintendo.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].nintendo.indexOf(platform)}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].nintendo.indexOf(
-                                  platform
-                                )}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].nintendo,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <div className="category-title">Microsoft</div>
                       <div className="filter-checkboxes" id="microsoft">
-                        {platformsArray[0].microsoft.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].microsoft.indexOf(
-                                platform
-                              )}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].microsoft.indexOf(
-                                  platform
-                                )}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].microsoft,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <div className="category-title">SEGA</div>
                       <div className="filter-checkboxes" id="sega">
-                        {platformsArray[0].sega.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].sega.indexOf(platform)}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].sega.indexOf(platform)}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].sega,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <div className="category-title">Mobile</div>
                       <div className="filter-checkboxes" id="mobile">
-                        {platformsArray[0].mobile.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].mobile.indexOf(platform)}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].mobile.indexOf(platform)}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].mobile,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <div className="category-title">Retro</div>
                       <div className="filter-checkboxes" id="retro">
-                        {platformsArray[0].retro.map((platform) => {
-                          return (
-                            <label
-                              key={platformsArray[0].retro.indexOf(platform)}
-                            >
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    platforms,
-                                    setPlatforms
-                                  )
-                                }
-                                value={platform.value}
-                                key={platformsArray[0].retro.indexOf(platform)}
-                              />
-                              <span>{platform.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(
+                          platformsArray[0].retro,
+                          platforms,
+                          setPlatforms
+                        )}
                       </div>
                       <button className="nes-btn is-success">Close</button>
                     </menu>
@@ -389,26 +264,7 @@ const Parameters: React.FC<ParametersProps> = ({
                     <p className="title">Filter by stores:</p>
                     <menu className="dialog-menu">
                       <div className="filter-checkboxes">
-                        {storesArray.map((store) => {
-                          return (
-                            <label key={storesArray.indexOf(store)}>
-                              <input
-                                type="checkbox"
-                                className="nes-checkbox"
-                                onChange={(e) =>
-                                  handleFilter(
-                                    e.target.value,
-                                    stores,
-                                    setStores
-                                  )
-                                }
-                                value={store.value}
-                                key={storesArray.indexOf(store)}
-                              />
-                              <span>{store.name}</span>
-                            </label>
-                          );
-                        })}
+                        {renderCheckboxes(storesArray, stores, setStores)}
                       </div>
                       <button className="nes-btn is-success">Close</button>
                     </menu>
