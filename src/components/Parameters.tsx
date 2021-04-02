@@ -369,8 +369,20 @@ const Parameters: React.FC<ParametersProps> = ({
                   <form method="dialog" id="filter-platforms">
                     <p className="title">Filter by platform:</p>
                     <menu className="dialog-menu">
-                      <div className="category-title">Desktop</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#desktop input:checkbox:checked").length
+                            ? $("#desktop input:checkbox").prop("checked", true)
+                            : $("#desktop input:checkbox").prop(
+                                "checked",
+                                false
+                              )
+                        }
+                      >
+                        Desktop
+                      </div>
+                      <div className="filter-checkboxes" id="desktop">
                         <label>
                           <input
                             type="checkbox"
@@ -432,8 +444,17 @@ const Parameters: React.FC<ParametersProps> = ({
                           <span>Classic Macintosh</span>
                         </label>
                       </div>
-                      <div className="category-title">Sony</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#sony input:checkbox:checked").length
+                            ? $("#sony input:checkbox").prop("checked", true)
+                            : $("#sony input:checkbox").prop("checked", false)
+                        }
+                      >
+                        Sony
+                      </div>
+                      <div className="filter-checkboxes" id="sony">
                         <label>
                           <input
                             type="checkbox"
@@ -540,8 +561,23 @@ const Parameters: React.FC<ParametersProps> = ({
                           <span>PSP</span>
                         </label>
                       </div>
-                      <div className="category-title">Nintendo</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#nintendo input:checkbox:checked").length
+                            ? $("#nintendo input:checkbox").prop(
+                                "checked",
+                                true
+                              )
+                            : $("#nintendo input:checkbox").prop(
+                                "checked",
+                                false
+                              )
+                        }
+                      >
+                        Nintendo
+                      </div>
+                      <div className="filter-checkboxes" id="nintendo">
                         <label>
                           <input
                             type="checkbox"
@@ -738,8 +774,23 @@ const Parameters: React.FC<ParametersProps> = ({
                           <span>Game Boy</span>
                         </label>
                       </div>
-                      <div className="category-title">Microsoft</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#microsoft input:checkbox:checked").length
+                            ? $("#microsoft input:checkbox").prop(
+                                "checked",
+                                true
+                              )
+                            : $("#microsoft input:checkbox").prop(
+                                "checked",
+                                false
+                              )
+                        }
+                      >
+                        Microsoft
+                      </div>
+                      <div className="filter-checkboxes" id="microsoft">
                         <label>
                           <input
                             type="checkbox"
@@ -801,8 +852,17 @@ const Parameters: React.FC<ParametersProps> = ({
                           <span>Xbox</span>
                         </label>
                       </div>
-                      <div className="category-title">SEGA</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#sega input:checkbox:checked").length
+                            ? $("#sega input:checkbox").prop("checked", true)
+                            : $("#sega input:checkbox").prop("checked", false)
+                        }
+                      >
+                        SEGA
+                      </div>
+                      <div className="filter-checkboxes" id="sega">
                         <label>
                           <input
                             type="checkbox"
@@ -909,8 +969,17 @@ const Parameters: React.FC<ParametersProps> = ({
                           <span>Game Gear</span>
                         </label>
                       </div>
-                      <div className="category-title">Mobile</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#mobile input:checkbox:checked").length
+                            ? $("#mobile input:checkbox").prop("checked", true)
+                            : $("#mobile input:checkbox").prop("checked", false)
+                        }
+                      >
+                        Mobile
+                      </div>
+                      <div className="filter-checkboxes" id="mobile">
                         <label>
                           <input
                             type="checkbox"
@@ -942,8 +1011,17 @@ const Parameters: React.FC<ParametersProps> = ({
                           <span>iOS</span>
                         </label>
                       </div>
-                      <div className="category-title">Retro</div>
-                      <div className="filter-checkboxes">
+                      <div
+                        className="category-title nes-pointer"
+                        onClick={() =>
+                          !$("#retro input:checkbox:checked").length
+                            ? $("#retro input:checkbox").prop("checked", true)
+                            : $("#retro input:checkbox").prop("checked", false)
+                        }
+                      >
+                        Retro
+                      </div>
+                      <div className="filter-checkboxes" id="retro">
                         <label>
                           <input
                             type="checkbox"
