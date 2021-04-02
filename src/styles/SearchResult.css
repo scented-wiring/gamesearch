@@ -39,6 +39,7 @@
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 5px;
 }
 
 .list-item {
@@ -57,4 +58,113 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 920px) {
+  .SearchResult,
+  .SearchResult .nes-container {
+    width: 300px;
+  }
+
+  .screenshot {
+    width: 270px;
+    height: 150px;
+  }
+
+  .released,
+  .list-header,
+  .rating {
+    font-size: 12px;
+  }
+
+  .name {
+    font-size: 13px;
+  }
+
+  .list-item {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 710px) {
+  .SearchResult,
+  .SearchResult .nes-container {
+    width: 400px;
+  }
+
+  .screenshot {
+    width: 350px;
+    height: 200px;
+  }
+
+  .released,
+  .list-header,
+  .rating {
+    font-size: 15px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .list-item {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .SearchResult,
+  .SearchResult .nes-container {
+    width: 300px;
+  }
+
+  .screenshot {
+    width: 270px;
+    height: 150px;
+  }
+
+  .released,
+  .list-header,
+  .rating {
+    font-size: 12px;
+  }
+
+  .name {
+    font-size: 13px;
+  }
+
+  .list-item {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .SearchResult,
+  .SearchResult .nes-container {
+    width: 250px;
+  }
+
+  .screenshot {
+    width: 230px;
+    height: 150px;
+  }
+
+  .released,
+  .list-header,
+  .rating {
+    font-size: 10px;
+  }
+
+  .name {
+    font-size: 12px;
+  }
+
+  .list-item {
+    font-size: 9px;
+  }
+
+  .metacritic-score {
+    height: 25px;
+    width: 30px;
+  }
 }
