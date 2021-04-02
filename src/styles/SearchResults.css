@@ -90,6 +90,17 @@
     font-size: 12px;
     height: 35px;
   }
+
+  .nes-balloon {
+    height: 60px;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  .nes-balloon {
+    padding-top: 12px;
+  }
 }
 
 @media only screen and (max-width: 360px) {
@@ -106,5 +117,17 @@
   .dark_select {
     font-size: 9px;
     height: 30px;
+  }
+}
+
+@media only screen and (max-width: 326px) {
+  .nes-balloon {
+    padding: 10px 10px 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 297px) {
+  .nes-balloon {
+    padding: 3px 10px 5px 10px;
   }
 }
