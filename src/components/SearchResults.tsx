@@ -48,17 +48,21 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                       className="dark_select nes-pointer"
                       onChange={(e) => setPage(parseInt(e.target.value))}
                     >
-                      {pagesArray.map((page) => (
-                        <option
-                          key={pagesArray.indexOf(page)}
-                          value={pagesArray.indexOf(page) + 1}
-                        >
-                          {pagesArray.indexOf(page) + 1}
-                        </option>
-                      ))}
+                      {pagesArray.map(
+                        (page) =>
+                          pagesArray.indexOf(page) <= 499 && (
+                            <option
+                              key={pagesArray.indexOf(page)}
+                              value={pagesArray.indexOf(page) + 1}
+                            >
+                              {pagesArray.indexOf(page) + 1}
+                            </option>
+                          )
+                      )}
                     </select>
-
-                    <div className="label">of {pagesArray.length}</div>
+                    <div className="label">
+                      of {pagesArray.length >= 500 ? 500 : pagesArray.length}
+                    </div>
                   </div>
                 )
               );
