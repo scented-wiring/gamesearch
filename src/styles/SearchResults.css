@@ -76,6 +76,12 @@
   height: 70px;
 }
 
+#note {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
 @media only screen and (max-width: 600px) {
   .page,
   .page-active {
@@ -94,6 +100,12 @@
   .nes-balloon {
     height: 60px;
     font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #note {
+    font-size: 10px;
   }
 }
 
@@ -123,6 +135,10 @@
 @media only screen and (max-width: 326px) {
   .nes-balloon {
     padding: 10px 10px 5px 10px;
+  }
+
+  #note {
+    font-size: 9px;
   }
 }
 

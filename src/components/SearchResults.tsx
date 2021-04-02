@@ -89,6 +89,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({
             : "Whoops!"}
         </p>
         {renderPageLinks()}
+        {pagesArray.length >= 500 && (
+          <div id="note">
+            Search results are capped at 500 pages. Consider applying filters or
+            returning more results per page.
+          </div>
+        )}
         {!error.active ? (
           <div key="SearchResults" className="SearchResults-cards">
             {data.results.map((game: Game) => {
