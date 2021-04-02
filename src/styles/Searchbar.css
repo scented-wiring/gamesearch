@@ -23,26 +23,26 @@
 
 @media only screen and (max-width: 600px) {
   .nes-input {
-    font-size: 10px;
+    font-size: 12px;
     width: 240px;
     height: 30px;
   }
 
   .Searchbar .nes-btn {
-    font-size: 10px;
-    width: 90px;
+    font-size: 12px;
+    width: 95px;
     height: 30px;
   }
 }
 
 @media only screen and (max-width: 360px) {
   .nes-input {
-    font-size: 10px;
+    font-size: 11px;
     width: 170px;
   }
 
   .Searchbar .nes-btn {
-    font-size: 9px;
-    width: 80px;
+    font-size: 11px;
+    width: 90px;
   }
 }
