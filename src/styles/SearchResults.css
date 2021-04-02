@@ -12,15 +12,26 @@
 .jump-to {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
+
+.label {
+  margin: 0 5px 0 12px;
+}
+
 .SearchResults label {
   padding-top: 8px;
   font-size: 15px;
 }
 
-#dark_select {
-  font-size: 12px;
-  height: 40px;
+.dark_select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-size: 14px;
+  height: 45px;
+  padding: 10px 15px;
+  background: #1a1e22;
+  color: white;
 }
 
 .page {
@@ -65,4 +76,35 @@
 
 .nes-balloon {
   height: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  .page,
+  .page-active {
+    font-size: 13px;
+  }
+
+  .jump-to {
+    font-size: 13px;
+  }
+
+  .dark_select {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .page,
+  .page-active {
+    font-size: 11px;
+    margin: 0 7px;
+  }
+
+  .jump-to {
+    font-size: 11px;
+  }
+
+  .dark_select {
+    font-size: 9px;
+  }
 }

@@ -132,6 +132,10 @@
 }
 
 @media only screen and (max-width: 395px) {
+  .nes-container.with-title > .title {
+    font-size: 0.7rem;
+  }
+
   .Parameters .nes-container {
     padding: 20px 10px;
   }

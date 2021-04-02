@@ -28,9 +28,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       <div className="nes-container with-title is-centered">
         <p className="title">
           {!error.active
-            ? `Page ${page} of ${pagesArray.length} - Results ${
-                page * resultsPerPage - (resultsPerPage - 1)
-              }-${
+            ? `${page * resultsPerPage - (resultsPerPage - 1)}-${
                 page * resultsPerPage -
                 (resultsPerPage - 1) +
                 data.results.length -
@@ -54,61 +52,29 @@ const SearchResults: React.FC<SearchResultsProps> = ({
                 return (
                   pageNo === 1 && (
                     <div key="jump-to" className="jump-to">
-                      <label>Page:</label>
-                      <div className="nes-select is-dark">
-                        <select
-                          required
-                          defaultValue={page}
-                          id="dark_select"
-                          onChange={(e) => setPage(parseInt(e.target.value))}
-                        >
-                          {pagesArray.map((page) => (
-                            <option
-                              key={pagesArray.indexOf(page)}
-                              value={pagesArray.indexOf(page) + 1}
-                            >
-                              {pagesArray.indexOf(page) + 1}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                      <div className="label">Page:</div>
+                      <select
+                        required
+                        defaultValue={page}
+                        className="dark_select nes-pointer"
+                        onChange={(e) => setPage(parseInt(e.target.value))}
+                      >
+                        {pagesArray.map((page) => (
+                          <option
+                            key={pagesArray.indexOf(page)}
+                            value={pagesArray.indexOf(page) + 1}
+                          >
+                            {pagesArray.indexOf(page) + 1}
+                          </option>
+                        ))}
+                      </select>
+
+                      <div className="label">of {pagesArray.length}</div>
                     </div>
                   )
                 );
               } else {
-                if (pagesArray.length >= 3 && page !== 1 && pageNo === 1) {
-                  return (
-                    <div key="prev-section" className="arrow-section">
-                      <div
-                        key="prev"
-                        className="arrow"
-                        onClick={() => setPage(page - 1)}
-                      >
-                        {"<Prev"}
-                      </div>
-                      {standardPageLink}
-                    </div>
-                  );
-                } else if (
-                  pagesArray.length >= 3 &&
-                  page !== pagesArray.length &&
-                  pageNo === pagesArray.length
-                ) {
-                  return (
-                    <div key="next-section" className="arrow-section">
-                      {standardPageLink}
-                      <div
-                        key="next"
-                        className="arrow"
-                        onClick={() => setPage(page + 1)}
-                      >
-                        {"Next>"}
-                      </div>
-                    </div>
-                  );
-                } else {
-                  return standardPageLink;
-                }
+                return standardPageLink;
               }
             })}
           </div>
