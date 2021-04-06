@@ -1,9 +1,10 @@
-import moment from "moment";
 // Types
 import { Game } from "../types";
 // Styling
 import noimage from "../noimage.jpg";
 import "../styles/SearchResult.css";
+
+const moment = require("moment");
 
 const SearchResult: React.FC<Game> = ({
   background_image,
