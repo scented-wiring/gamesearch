@@ -10,7 +10,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
   searched,
   setSearched,
   setPage,
-  hello,
 }) => {
   const [queryString, setQueryString] = useState("");
 
