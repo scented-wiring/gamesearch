@@ -38,12 +38,8 @@ const App = () => {
       setLoad(true);
       axios
         .get(
-          `https://api.rawg.io/api/games?key=${
+          `/games?query=${query}&exact=${exact}&page=${page}&resultsPerPage=${resultsPerPage}&sortBy=${sortBy}&genres=${genres.toString()}&platforms=${platforms.toString()}&stores=${stores.toString()}&key=${
             process.env.REACT_APP_KEY
-          }&search=${query}&search_precise=true&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}${
-            genres.length ? `&genres=${genres.toString()}` : ``
-          }${platforms.length ? `&platforms=${platforms.toString()}` : ``}${
-            stores.length ? `&stores=${stores.toString()}` : ``
           }`
         )
         .then((response) => {
