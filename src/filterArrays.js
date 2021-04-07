@@ -10,7 +10,7 @@ export const genresArray = [
   { name: "Puzzle", value: 7 },
   { name: "Arcade", value: 11 },
   { name: "Platformer", value: 83 },
-  { name: "Racting", value: 1 },
+  { name: "Racing", value: 1 },
   { name: "Sports", value: 15 },
   { name: "MMORPG", value: 59 },
   { name: "Fighting", value: 6 },
