@@ -38,9 +38,7 @@ const App = () => {
       setLoad(true);
       axios
         .get(
-          `/games?query=${query}&exact=${exact}&page=${page}&resultsPerPage=${resultsPerPage}&sortBy=${sortBy}&genres=${genres.toString()}&platforms=${platforms.toString()}&stores=${stores.toString()}&key=${
-            process.env.REACT_APP_KEY
-          }`
+          `/games?query=${query}&exact=${exact}&page=${page}&resultsPerPage=${resultsPerPage}&sortBy=${sortBy}&genres=${genres.toString()}&platforms=${platforms.toString()}&stores=${stores.toString()}`
         )
         .then((response) => {
           setData(response.data);
