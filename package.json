@@ -2,7 +2,7 @@
   "name": "gamesearch",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://gamesearch-proxy.herokuapp.com/",
+  "proxy": "https://gamesearch-proxy.herokuapp.com",
   "engines": {
     "node": "12.x"
   },
