@@ -38,7 +38,13 @@ const App = () => {
       setLoad(true);
       axios
         .get(
-          `https://gamesearch-proxy.herokuapp.com/games?query=${query}&exact=${exact}&page=${page}&resultsPerPage=${resultsPerPage}&sortBy=${sortBy}&genres=${genres.toString()}&platforms=${platforms.toString()}&stores=${stores.toString()}`
+          `https://gamesearch-proxy.herokuapp.com/games?key=${
+            process.env.REACT_APP_KEY
+          }&search=${query}&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}${
+            genres.length ? `&genres=${genres}` : ``
+          }${platforms.length ? `&platforms=${platforms}` : ``}${
+            stores.length ? `&stores=${stores}` : ``
+          }`
         )
         .then((response) => {
           setData(response.data);
