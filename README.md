@@ -6,8 +6,10 @@ Connects to the [RAWG API](https://rawg.io/apidocs) allowing the user to search 
 
 ## Desktop
 
-![Desktop Screenshot]()
+![Desktop Screenshot 1](https://raw.githubusercontent.com/scented-wiring/gamesearch/master/screenshots/desktop1.png)
+![Desktop Screenshot 2](https://raw.githubusercontent.com/scented-wiring/gamesearch/master/screenshots/desktop2.png)
 
 ## Mobile
 
-![Mobile Screenshot]()
+![Mobile Screenshot 1](https://raw.githubusercontent.com/scented-wiring/gamesearch/master/screenshots/mobile1.png)
+![Mobile Screenshot 2](https://raw.githubusercontent.com/scented-wiring/gamesearch/master/screenshots/mobile2.png)
