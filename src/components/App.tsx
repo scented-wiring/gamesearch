@@ -40,7 +40,7 @@ const App = () => {
         .get(
           `https://gamesearch-proxy.herokuapp.com/games?key=${
             process.env.REACT_APP_KEY
-          }&search=${query}&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}${
+          }&search_precise=true&search=${query}&search_exact=${exact}&page=${page}&page_size=${resultsPerPage}&ordering=${sortBy}${
             genres.length ? `&genres=${genres}` : ``
           }${platforms.length ? `&platforms=${platforms}` : ``}${
             stores.length ? `&stores=${stores}` : ``
