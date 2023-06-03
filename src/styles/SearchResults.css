@@ -57,9 +57,9 @@
 
 .SearchResults-cards {
   margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .no-results {
@@ -82,68 +82,20 @@
   margin-bottom: 15px;
 }
 
-@media only screen and (max-width: 600px) {
-  .page,
-  .page-active {
-    font-size: 13px;
-  }
-
-  .jump-to {
-    font-size: 13px;
-  }
-
-  .dark_select {
-    font-size: 12px;
-    height: 35px;
-  }
-
-  .nes-balloon {
-    height: 60px;
-    font-size: 11px;
+@media only screen and (max-width: 1420px) {
+  .SearchResults-cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media only screen and (max-width: 550px) {
-  #note {
-    font-size: 10px;
+@media only screen and (max-width: 1000px) {
+  .SearchResults-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media only screen and (max-width: 449px) {
-  .nes-balloon {
-    padding-top: 12px;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .page,
-  .page-active {
-    font-size: 11px;
-    margin: 0 7px;
-  }
-
-  .jump-to {
-    font-size: 11px;
-  }
-
-  .dark_select {
-    font-size: 9px;
-    height: 30px;
-  }
-}
-
-@media only screen and (max-width: 326px) {
-  .nes-balloon {
-    padding: 10px 10px 5px 10px;
-  }
-
-  #note {
-    font-size: 9px;
-  }
-}
-
-@media only screen and (max-width: 297px) {
-  .nes-balloon {
-    padding: 3px 10px 5px 10px;
+@media only screen and (max-width: 767px) {
+  .SearchResults-cards {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
